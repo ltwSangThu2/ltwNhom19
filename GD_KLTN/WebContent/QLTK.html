@@ -1,0 +1,114 @@
+	<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+   
+   <div class="row">
+   		<div class="col-xs-12">
+   		<ul class="nav nav-tabs">
+   			<li class="active">
+   				<a href="#detaiTab" data-toggle="tab">Danh Sách Đề Tài</a>
+   			</li>
+   			
+   			
+   		</ul>
+   		</div>
+   	</div>
+   	<div class="tab-content">
+   		<div id="detaiTab" class="tab-pane fade in active ">
+   		
+   			<p><div class="row">
+    <div class="search col-md-6 col-sm-6 col-xs-12 text">
+        <form method="get" action="#">
+          <input type="text" placeholder="Nhập tài khoản cần tìm" id="q" name="q" value="">
+          <input type="submit" value="Tìm Kiếm">
+        </form>
+      </div>
+      <div class="clearfix"></div>
+</div>
+	    <div class="btn-group btn-group-lg">
+    	<button class="btn btn-default">Tài Khoản</button>
+    	<button class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+    		<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+			<li><a href="#">Giáo Viên</a></li>
+			<li><a href="#">Sinh Viên</a></li>
+			<li><a href="#">Trưởng Khoa</a></li>
+			<li><a href="#">Tất Cả</a></li>
+			
+		</ul>
+    	<br></br>
+    	<br></br>
+    </div>
+   			<div class="panel panel-default">
+   		<table class="table table-bordered table-center table-striped">
+   			<thead>
+	            <tr class="danger">
+	                 <th>Chọn</th>
+	                 <th>Tài Khoản</th>
+	                 <th>Tên Tài Khoản</th>
+	                 <th>Email</th>
+	                 <th>Quyền</th>
+	            </tr>
+            </thead>
+            <tbody>
+	            <tr>
+		            <td>
+		            	<input type="checkbox" name="vehicle" value="TK"></br>
+		            </td>
+		            <td>Trưởng Khoa/Bộ Môn</td>
+		            <td>Dung1234 </td>
+		            <td>Dung25@gmail.com</td>  
+		            <td>Trưởng Khoa/Bộ Môn</td>                            
+	            </tr>
+                <tr>
+	                <td>
+		            	<input type="checkbox" name="vehicle" value="GV"></br>
+		            </td>
+		            <td>Giáo Viên</td>
+		            <td>Chau1234 </td>
+		            <td>Chau123@gmail.com</td>  
+		            <td>Giáo Viên</td>                       
+                </tr>
+                <tr>
+	                <td>
+		            	<input type="checkbox" name="vehicle" value="SV"></br>
+		            </td>
+		            <td>Sinh Viên</td>
+		            <td>Hoang1234 </td>
+		            <td>Hoang12@gmail.com</td>  
+		            <td>Sinh Viên</td> 
+                </tr> 
+                                    
+        	</tbody>
+   		</table>
+   		
+   	</div>
+        <div class="btn-toolbar ">
+    	<div class="btn btn-lg">
+    		<a href="#" class="btn btn-warning">Xóa</a>
+    	</div>
+   		<div class="btn btn-lg">
+	    	<a href="#" class="btn btn-info">Xem Thông Tin</a>
+    	</div>
+    	<div class="btn btn-lg">
+    		<a href="#" class="btn btn-success">Tạo Mới</a>
+    	</div>
+    
+    </div>
+   	</p>
+   		</div>
+   		
+   </div>
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

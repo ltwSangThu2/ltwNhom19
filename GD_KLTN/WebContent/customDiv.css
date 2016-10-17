@@ -79,3 +79,101 @@
     width: 50px;
     z-index: 9999;
 }
+
+#MGV{
+	width: 220px;
+	height: 30px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	border-radius: 03px;
+	boder: none;
+}
+ #Khoa{
+	width: 220px;
+	height: 30px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	border-radius: 03px;
+	boder: none;
+}
+#CM{
+	width: 220px;
+	height: 30px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	border-radius: 03px;
+	boder: none;
+}
+#BM{
+	width: 220px;
+	height: 30px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	border-radius: 03px;
+	boder: none;
+}
+#HT{
+	width: 220px;
+	height: 30px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	border-radius: 03px;
+	boder: none;
+}
+#GT{
+	width: 220px;
+	height: 30px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	border-radius: 03px;
+	boder: none;
+}
+#GTrong{
+	width: 220px;
+	height: 30px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	border-radius: 03px;
+	boder: none;
+}
+#TPhong{
+	width: 220px;
+	height: 30px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	border-radius: 03px;
+	boder: none;
+}
+#NTrong{
+	width: 220px;
+	height: 30px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	border-radius: 03px;
+	boder: none;
+}
+
+#SDT{
+	width: 220px;
+	height: 30px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	border-radius: 03px;
+	boder: none;
+}
+#EM{
+	width: 220px;
+	height: 30px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	border-radius: 03px;
+	boder: none;
+}
+#btn{
+	margin-top: 50px;
+	width: 150px;
+	height: 30px;
+	font-family: Trebuchet MS;
+	font-size: 18px;
+	boder: none;
+}

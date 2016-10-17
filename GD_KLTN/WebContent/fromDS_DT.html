@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap 101 Template</title>
     <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+      <link href="customDiv.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+     <script type="text/javascript" src="jquery-1.2.6.min.js"></script>
+	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="jquery.validate.min.js"></script>
   </head>
   <body>
    
@@ -134,7 +139,7 @@
 	    	<a href="#" class="btn btn-info">Lưu</a>
     	</div>
     	<div class="btn btn-lg">
-    		<a href="#" class="btn btn-danger">Thêm</a>
+    		<a href="#" onclick="loadthemdt()" class="btn btn-danger">Thêm</a>
     	</div>
     	<div class="btn btn-lg">
 	    	<a href="#" class="btn btn-success">Xóa</a>
@@ -150,7 +155,19 @@
    		<div id="trangchuTab" class="tab-pane fade">
    		</div>
    </div>
-   
+   <script language="javascript">
+					
+				function loadthemdt() {
+					  var xhttp = new XMLHttpRequest();
+					  xhttp.onreadystatechange = function() {
+					    if (this.readyState == 4 && this.status == 200) {
+					      document.getElementById("detaiTab").innerHTML = this.responseText;
+					    }
+					  };
+					  xhttp.open("GET", "demo.html", true); 
+					  xhttp.send();
+					}
+	</script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
   </body>

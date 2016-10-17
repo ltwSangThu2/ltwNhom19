@@ -1,0 +1,148 @@
+
+  <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="customDiv.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script type="text/javascript">
+   
+	function myfun()
+	{
+	var FirstName=document.getElementById('F_Name').value;
+	var LastName=document.getElementById('L_Name').value;
+	var Email=document.getElementById('email').value;
+	var password=document.getElementById('pass').value;
+	var C_password=document.getElementById('c_pass').value;
+
+	if(FirstName=="")
+	{
+
+	document.getElementById('FN').innerHTML="Please Enter Your FirstName";
+
+	}
+
+	else if(FirstName!="")
+
+	{
+
+	document.getElementById('FN').innerHTML="";
+
+	}
+	if(LastName=="")
+	{
+
+	document.getElementById('LN').innerHTML="Please Enter Your Last Name";
+
+	}
+	else if(LastName!="")
+
+	{
+
+	document.getElementById('LN').innerHTML="";
+
+	}
+	if(Email=="")
+	{
+
+	document.getElementById('E_Check').innerHTML="Please Enter Your Email";
+
+	}
+
+	else if(Email!="")
+
+	{
+
+	document.getElementById('E_Check').innerHTML="";
+
+	}
+
+	if(password=="")
+	{
+
+	document.getElementById('password').innerHTML="Please Enter Password";
+
+	}
+
+	else if(password!="")
+
+	{
+
+	document.getElementById'‘password').innerHTML="";
+
+	}
+	if(C_password=="")
+	{
+
+	document.getElementById('c_password').innerHTML="Please Enter Confirm Password";
+
+	}
+
+	else if (password.length<6 || C_password.length<6)
+	{
+
+	alert('Password Must Use More Than 06 Characters');
+	}
+	else if (password!=C_password)
+	{
+
+	alert('Password Does Not Match');
+
+	}
+	else 
+	{
+	alert('Well Come to ' + FirstName + " " + LastName);
+
+	}
+
+	if(password!=C_password)
+
+	{
+
+	document.getElementById('c_password').innerHTML="";
+
+	}
+
+	}
+    </script>
+  
+  
+
+  </head>
+  <body>
+ <table align="center">
+ 	<tr>
+		<td>First Name</td>
+		<td><input type="text" id="F_Name"></td>
+		<div id="FN"></div>
+	</tr>
+	<tr>
+		<td>Last Name</td>
+		<td><input type="text"  id="L_Name"></td>
+		<div id="LN"></div>
+	</tr>
+	<tr>
+		<td>Email</td>
+		<td><input type="email"  id="email"></td>
+		<div id="E_Check"></div>
+	</tr>
+	<tr>
+		<td>Password</td>
+		<td><input type="password" id="pass"></td>
+		<div id="password"></div>
+	</tr>
+	<tr>
+		<td>Confirm Password</td>
+		<td><input type="password"  id="c_pass"></td>
+		<div id="c_password"></div>
+	</tr>
+	<tr>
+		<td><input type="button" value="Sign UP" id="btn" onclick="myfun()"></td>
+	</tr>
+	</table>
+  </body>
+</html>

@@ -6,30 +6,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap 101 Template</title>
     <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+.error {color: #FF0000;}
+</style>
   </head>
   <body>
-  <h3 align="center">THÊM THÔNG TIN ĐỀ TÀI</h3></br>
-  </br>
-  <h3>Đề Tài</h3>
-   <form action="#" method="post" name="themdt">
-  Tên Đề Tài: <input type="text" name="tdt" placeholder="Nhập tên đề tài" /> <br />
-  GVHD: <input type="text" name="gvhd" placeholder="Nhập GVHD" /> <br />
-  </br>
-  <input type="submit" name="submit" value="Thêm Đề Tài" /><br />
-  </br>
-  </br>
-  <h3>Chi Tiết Đề Tài</h3>
-  Tên Đề Tài: <input type="text" name="tdt" placeholder="Nhập tên đề tài" /> <br />
-  SL Sinh Viên: <input type="text" name="slsv" placeholder="Nhập SL Sinh Viên" /> <br />
-  Chuyên Ngành: <input type="text" name="cn" placeholder="Nhập chuyên ngành" /> <br />
-  Loại Đề Tài: <input type="text" name="ldt" placeholder="Nhập loại đề tài" /> <br />
-  Trưởng Nhóm <input type="text" name="tn" placeholder="Nhập trưởng nhóm" /> <br />
-  Thành Viên: <input type="text" name="tv" placeholder="Nhập thành viên" /> <br />
-  GVHD: <input type="text" name="gvhd" placeholder="Nhập GVHD" /> <br />
-  </br>
-  <input type="submit" name="submit" value="Thêm Chi Tiết Đề Tài" />
+   <?php
+// define variables and set to empty values
+$nameErr = $emailErr = $genderErr = $websiteErr = "";
+$name = $email = $gender = $comment = $website = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["name"])) {
+    $nameErr = "Name is required";
+  } else {
+    $name = test_input($_POST["name"]);
+  }
+  
+  if (empty($_POST["email"])) {
+    $emailErr = "Email is required";
+  } else {
+    $email = test_input($_POST["email"]);
+  }
+    
+  if (empty($_POST["website"])) {
+    $website = "";
+  } else {
+    $website = test_input($_POST["website"]);
+  }
+
+  if (empty($_POST["comment"])) {
+    $comment = "";
+  } else {
+    $comment = test_input($_POST["comment"]);
+  }
+
+  if (empty($_POST["gender"])) {
+    $genderErr = "Gender is required";
+  } else {
+    $gender = test_input($_POST["gender"]);
+  }
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+
+<h2>PHP Form Validation Example</h2>
+<p><span class="error">* required field.</span></p>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
+  Name: <input type="text" name="name">
+  <span class="error">* <?php echo $nameErr;?></span>
+  <br><br>
+  E-mail: <input type="text" name="email">
+  <span class="error">* <?php echo $emailErr;?></span>
+  <br><br>
+  Website: <input type="text" name="website">
+  <span class="error"><?php echo $websiteErr;?></span>
+  <br><br>
+  Comment: <textarea name="comment" rows="5" cols="40"></textarea>
+  <br><br>
+  Gender:
+  <input type="radio" name="gender" value="female">Female
+  <input type="radio" name="gender" value="male">Male
+  <span class="error">* <?php echo $genderErr;?></span>
+  <br><br>
+  <input type="submit" name="submit" value="Submit">  
 </form>
-   
+
+<?php
+echo "<h2>Your Input:</h2>";
+echo $name;
+echo "<br>";
+echo $email;
+echo "<br>";
+echo $website;
+echo "<br>";
+echo $comment;
+echo "<br>";
+echo $gender;
+?>
+
    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>

@@ -6,30 +6,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap 101 Template</title>
     <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   </head>
   <body>
-  <h3 align="center">THÊM THÔNG TIN ĐỀ TÀI</h3></br>
+   <h3 align="center" style="color:red">THÊM THÔNG TIN ĐỀ TÀI</h3></br>
   </br>
-  <h3>Đề Tài</h3>
-   <form action="#" method="post" name="themdt">
-  Tên Đề Tài: <input type="text" name="tdt" placeholder="Nhập tên đề tài" /> <br /></br>
-  GVHD: <input type="text" name="gvhd" placeholder="Nhập GVHD" /> <br />
+  <h3 style="color:red">Đề Tài</h3>
+   <form ng-app="myApp" ng-controller="validateCtrl"
+name="myForm" novalidate>
+  <p style="color:red">Tên Đề Tài: <input type="text" name="tdt" ng-model="tdt" required>
+<span style="color:pink" ng-show="myForm.tdt.$dirty && myForm.tdt.$invalid">
+<span ng-show="myForm.tdt.$error.required">Ten De Tai is required.</span>
+</span></p>
+   <br /></br>
+  <p style="color:red">GVHD: <input type="text" name="gvhd" ng-model="gvhd" required >
+  <span style="color:pink" ng-show="myForm.gvhd.$dirty && myForm.gvhd.$invalid">
+<span ng-show="myForm.gvhd.$error.required">GVHD is required.</span>
+</span>
+  </p>
+   <br />
   </br>
-  <input type="submit" name="submit" value="Thêm Đề Tài" /><br />
+  
+<p>
+  <input type="submit" name="submit" value="Thêm Đề Tài" ng-disabled="myForm.tdt.$dirty && myForm.tdt.$invalid ||
+myForm.gvhd.$dirty && myForm.gvhd.$invalid"></p><br />
   </br>
   </br>
-  <h3>Chi Tiết Đề Tài</h3>
-  Tên Đề Tài: <input type="text" name="tdt" placeholder="Nhập tên đề tài" /> <br /></br>
-  SL Sinh Viên: <input type="text" name="slsv" placeholder="Nhập SL Sinh Viên" /> <br /></br>
-  Chuyên Ngành: <input type="text" name="cn" placeholder="Nhập chuyên ngành" /> <br /></br>
-  Loại Đề Tài: <input type="text" name="ldt" placeholder="Nhập loại đề tài" /> <br /></br>
-  Trưởng Nhóm <input type="text" name="tn" placeholder="Nhập trưởng nhóm" /> <br /></br>
-  Thành Viên: <input type="text" name="tv" placeholder="Nhập thành viên" /> <br /></br>
-  GVHD: <input type="text" name="gvhd" placeholder="Nhập GVHD" /> <br />
-  </br>
-  <input type="submit" name="submit" value="Thêm Chi Tiết Đề Tài" />
+  <h3 style="color:red">Chi Tiết Đề Tài</h3>
+  <p style="color:red">Tên Đề Tài: <input type="text" name="tdt2" ng-model="tdt2" required>
+  <span style="color:pink" ng-show="myForm.tdt2.$dirty && myForm.tdt2.$invalid">
+<span ng-show="myForm.tdt2.$error.required">Ten De Tai is required.</span>
+</span></p>
+   <br /></br>
+  <p style="color:red">SL Sinh Viên: <input type="text" name="slsv" ng-model="slsv" required >
+  <span style="color:pink" ng-show="myForm.slsv.$dirty && myForm.slsv.$invalid">
+<span ng-show="myForm.slsv.$error.required">So Luong Sinh Vien is required.</span>
+</span></p>
+  
+   <br /></br>
+  <p style="color:red">Chuyên Ngành: <input type="text" name="cn" ng-model="cn" required />
+   <span style="color:pink" ng-show="myForm.cn.$dirty && myForm.cn.$invalid">
+<span ng-show="myForm.cn.$error.required">Chuyen Nganh is required.</span>
+</span></p>
+   <br /></br>
+ <p style="color:red"> Loại Đề Tài: <input type="text" name="ldt" ng-model="ldt" required >
+   <span style="color:pink" ng-show="myForm.ldt.$dirty && myForm.ldt.$invalid">
+<span ng-show="myForm.ldt.$error.required">Loai De Tai is required.</span>
+</span></p>
+   <br /></br>
+  <p style="color:red">Trưởng Nhóm <input type="text" name="tn" ng-model="tn" required>
+  <span style="color:pink" ng-show="myForm.tn.$dirty && myForm.tn.$invalid">
+<span ng-show="myForm.tn.$error.required">Truong Nhom is required.</span>
+</span></p>
+   <br /></br>
+  <p style="color:red">Thành Viên: <input type="text" name="tv" ng-model="tv" required>
+  <span style="color:pink" ng-show="myForm.tv.$dirty && myForm.tv.$invalid">
+<span ng-show="myForm.tv.$error.required">Thanh Vien is required.</span>
+</span></p>
+   <br /></br>
+  <p style="color:red">GVHD: <input type="text" name="gvhd2" ng-model="gvhd2" required>
+   <span style="color:pink" ng-show="myForm.gvhd2.$dirty && myForm.gvhd2.$invalid">
+<span ng-show="myForm.gvhd2.$error.required">Thanh Vien is required.</span>
+</span></p>
+</br>
+</br>
+<p>
+  <input type="submit" name="submit" value="Thêm Chi Tiết Đề Tài" ng-disabled="myForm.tdt2.$dirty && myForm.tdt2.$invalid ||
+myForm.slsv.$dirty && myForm.slsv.$invalid ||myForm.cn.$dirty && myForm.cn.$invalid ||myForm.ldt.$dirty && myForm.ldt.$invalid ||myForm.tn.$dirty && myForm.tn.$invalid ||myForm.tv.$dirty && myForm.tv.$invalid ||myForm.gvhd2.$dirty && myForm.gvhd2.$invalid"></p>
 </form>
-   
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('validateCtrl', function($scope) {
+    $scope.tdt = 'Zoho CRM';
+    $scope.gvhd = 'Nguyễn Thanh Tuấn';
+    $scope.tdt2 = 'Zoho CRM';
+    $scope.slsv = '2';
+    $scope.cn = 'Hệ Thống Thông Tin';
+    $scope.ldt = 'Khóa Luận Tốt Nghiệp';
+    $scope.tn = 'Hà Thị Thùy Dung';
+    $scope.tv = 'Dương Ái Châu';
+    $scope.gvhd2 = 'Nguyễn Thanh Tuấn';
+});
+</script>
    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>

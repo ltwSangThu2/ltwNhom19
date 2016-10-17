@@ -463,49 +463,34 @@ $(function() {
     <img src="Images/image4.jpg" alt="slideshow image4" />
     <img src="Images/image9.jpg" alt="slideshow image5" />
 	</div>
+	<div class="container">
+        <div id="footer">
+        <hr>
+            <h5 class="text-center text-danger">Khoa Công nghệ Thông tin - Đại học Sư phạm Kỹ thuật TP. Hồ Chí Minh</h5>
+            <h5 class="text-center text-danger">Số 1, Võ Văn Ngân, Thủ Đức, TP. Hồ Chí Minh</h5>
+        </div>
+    </div>
 <script language="javascript">
 					
 				function loadthemdt() {
-					  var xhttp = new XMLHttpRequest();
-					  xhttp.onreadystatechange = function() {
-					    if (this.readyState == 4 && this.status == 200) {
-					      document.getElementById("detaiTab").innerHTML = this.responseText;
-					    }
-					  };
-					  xhttp.open("GET", "ADD-DTM.jsp", true); 
-					  xhttp.send();
-					}
-				function loadthempt() {
-					  var xhttp = new XMLHttpRequest();
-					  xhttp.onreadystatechange = function() {
-					    if (this.readyState == 4 && this.status == 200) {
-					      document.getElementById("phongTab").innerHTML = this.responseText;
-					    }
-					  };
-					  xhttp.open("GET", "ADD-PT.jsp", true); 
-					  xhttp.send();
-					}
-				function loadthemttgv() {
-					  var xhttp = new XMLHttpRequest();
-					  xhttp.onreadystatechange = function() {
-					    if (this.readyState == 4 && this.status == 200) {
-					      document.getElementById("giaovienTab").innerHTML = this.responseText;
-					    }
-					  };
-					  xhttp.open("GET", "ADD-TTGV.jsp", true); 
-					  xhttp.send();
-					}
-				function loadTMTK() {
-					  var xhttp = new XMLHttpRequest();
-					  xhttp.onreadystatechange = function() {
-					    if (this.readyState == 4 && this.status == 200) {
-					      document.getElementById("qltkTab").innerHTML = this.responseText;
-					    }
-					  };
-					  xhttp.open("GET", "ADD-TKM.jsp", true); 
-					  xhttp.send();
-					}
+					$("#detaiTab").load("ADD-DTM.jsp");
+					    };
+					   function loadthemttgv() {
+							$("#giaovienTab").load("ADD-TTGV.jsp");
+							    };
+							    function loadTMTK() {
+									$("#qltkTab").load("ADD-TKM.jsp");
+									    };
+									    function loadthempt() {
+											$("#phongTab").load("ADD-PT.jsp");
+											    };
+											    
+					
+					
 				
 				</script>
+				
+
+				
   </body>
 </html>

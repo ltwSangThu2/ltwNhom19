@@ -204,10 +204,10 @@ $(function() {
 	</script>
 	 <div id="slideshow">
     <img src="Images/image1.jpg" alt="slideshow image1" class="active" />
-    <img src="Images/image10.jpg" alt="slideshow image10"  />
-    <img src="Images/image14.jpg" alt="slideshow image14" />
+    <img src="Images/image5.jpg" alt="slideshow image5"  />
+    <img src="Images/image2.jpg" alt="slideshow image2" />
     <img src="Images/image4.jpg" alt="slideshow image4" />
-    <img src="Images/image8.jpg" alt="slideshow image8" />
+    <img src="Images/image3.jpg" alt="slideshow image3" />
 </div>
   </body>
 </html>

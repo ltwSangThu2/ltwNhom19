@@ -758,11 +758,11 @@ $(function() {
 		snowStorm.useTwinkleEffect = true; // cho tuyết nhấp nháy
 	</script>
 	 <div id="slideshow">
-    <img src="Images/image5.jpg" alt="slideshow image5" class="active" />
-    <img src="Images/image4.jpg" alt="slideshow image4"  />
-    <img src="Images/image3.jpg" alt="slideshow image3" />
-    <img src="Images/image2.jpg" alt="slideshow image2" />
-    <img src="Images/image1.jpg" alt="slideshow image1" />
+    <img src="Images/image16.jpg" alt="slideshow image21" class="active" />
+    <img src="Images/image17.jpg" alt="slideshow image22"  />
+    <img src="Images/image18.jpg" alt="slideshow image23" />
+    <img src="Images/image19.jpg" alt="slideshow image19" />
+    <img src="Images/image20.jpg" alt="slideshow image24" />
 	</div>
 
 <script language="javascript">

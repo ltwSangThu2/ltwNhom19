@@ -71,7 +71,7 @@ $(function() {
    				<a href="#phongTab" data-toggle="tab">Danh Sách Phòng Trống</a>
    			</li>
    			<li>
-   				<a href="#trangchuTab" data-toggle="tab">Trang Chủ</a>
+   				<a href="LogoutServlet">Đăng Xuất</a>
    			</li>
    			<li>
    				<a href="#qltkTab" data-toggle="tab">Quản Lý Tài Khoản</a>

@@ -30,7 +30,7 @@
    								
    									<div class="form-group">
    										<label for="inputUserName">Username</label>
-   										<input class="form-control" placeholder="Username" type="text" name="name">
+   										<input class="form-control" placeholder="Username" type="text" name="userName">
    									</div>
    									<div class="form-group">
    										<label for="inputPassword">Password</label>

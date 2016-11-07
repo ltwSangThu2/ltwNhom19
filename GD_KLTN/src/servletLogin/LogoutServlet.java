@@ -20,13 +20,13 @@ public class LogoutServlet extends HttpServlet {
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 				throws ServletException, IOException {
-		response.setContentType("text/html");
+		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out=response.getWriter();
 		
 		HttpSession session=request.getSession();
 		session.invalidate();
 		out.print("you are successfully logged out!!!");
-		request.getRequestDispatcher("login.jsp").include(request, response);
+		request.getRequestDispatcher("TRANGCHU.jsp").include(request, response);
 		out.close();
 	}
 

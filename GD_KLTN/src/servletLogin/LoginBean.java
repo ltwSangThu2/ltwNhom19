@@ -1,4 +1,4 @@
-package servlet.loginlogout;
+package servletLogin;
 
 public class LoginBean {
 	 String userName="";

@@ -1,6 +1,6 @@
-package servlet.loginlogout;
+package servletLogin;
 
-import java.io.IOException;
+mport java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;

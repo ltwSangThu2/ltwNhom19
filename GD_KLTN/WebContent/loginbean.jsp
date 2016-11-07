@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body> 
-<jsp:useBean id="db" scope="request" class="servlet.loginlogout.LoginBean" >
+<jsp:useBean id="db" scope="request" class="servletLogin.LoginBean" >
   <jsp:setProperty name="db" property="userName" value='<%=request.getParameter("userName")%>'/>
   <jsp:setProperty name="db" property="password" value='<%=request.getParameter("password")%>'/>
  </jsp:useBean>

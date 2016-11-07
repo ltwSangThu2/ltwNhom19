@@ -1,4 +1,4 @@
-package servlet.loginlogout;
+package servletLogin;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,31 +11,27 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class ProfileServlet
+ * Servlet implementation class LogoutServlet
  */
-@WebServlet("/ProfileServlet")
-public class ProfileServlet extends HttpServlet {
+@WebServlet("/LogoutServlet")
+public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
-			throws ServletException, IOException {
-		response.setContentType("text/html;charset=UTF-8");
+				throws ServletException, IOException {
+		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
 		
-		HttpSession session=request.getSession(false);
-		if(session!=null){
-			request.getRequestDispatcher("profile.jsp").include(request, response);
-		}
-		else{
-			out.print("Please login first");
-			request.getRequestDispatcher("login.jsp").include(request, response);
-		}
+		HttpSession session=request.getSession();
+		session.invalidate();
+		out.print("you are successfully logged out!!!");
+		request.getRequestDispatcher("login.jsp").include(request, response);
 		out.close();
-		
-		
 	}
 
 	
+	
+	}
 
-}
+

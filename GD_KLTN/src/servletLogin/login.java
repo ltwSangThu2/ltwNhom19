@@ -56,7 +56,7 @@ public class login extends HttpServlet {
 				  username = request.getParameter("username").toString();
 				  userpass = request.getParameter("password").toString();
 		 
-				  strQuery="select * from TaiKhoan where TenTK='"+username+"' and  MatKhau='"+userpass+"'";
+				  strQuery="select * from taikhoan where TenTK='"+username+"' and  MatKhau='"+userpass+"'";
 				  System.out.println(strQuery);
 				  st = conn.createStatement();
 				  rs = st.executeQuery(strQuery);

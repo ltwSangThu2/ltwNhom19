@@ -6,7 +6,7 @@
 		url="jdbc:mysql://localhost/kltn" 
 		user="root" 
 		password="1234"/>
-	<sql:query var="items" sql="SELECT * FROM dsgv  "/> 
+	<sql:query var="items" sql="SELECT * FROM taikhoan  "/> 
 	<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -216,9 +216,8 @@ $(function() {
    			<thead>
 	            <tr class="success">
 	                 <th>MÃ GV</th>
-	                 <th>KHOA</th>
 	                 <th>HỌ VÀ TÊN</th>
-	                 <th>CHUYÊN NGÀNH</th>	                 
+	                 <th>BỘ MÔN</th>	                 
 	                 <th>NGÀY SINH</th>
 	                 <th>GIỚI TÍNH</th>
 	                 <th>SỐ ĐIỆN THOẠI</th>
@@ -228,10 +227,9 @@ $(function() {
             <tbody>
 	           <c:forEach items="${items.rows}" var="row">			
 								<tr>		
-										<td>${row.MaGV}</td>	
-										<td>${row.Khoa}</td>
+										<td>${row.IDTK}</td>	
 										<td>${row.HoTen}</td>	
-										<td>${row.ChuyenNganh}</td>	
+										<td>${row.BoMon}</td>	
 										<td>${row.NgaySinh}</td>
 										<td>${row.GioiTinh}</td>	
 										<td>${row.SDT}</td>	

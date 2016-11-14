@@ -8,35 +8,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap 101 Template</title>
     <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+ <style type="text/css">
+	label {
+		display: inline-block;
+		width: 300px;
+	}
+	select {
+		width: 450px;
+	}
+	label.error {
+		display: inline-block;
+		color:red;
+		width: 200px;
+	}
+	body {
+    background-color: whitesmoke;
+}
+	</style>
   </head>
   <body>
-   
-   <div class="row">
-   		<div class="col-xs-12">
-   		<ul class="nav nav-tabs">
-   			<li >
-   				<a href="#trangchuTab" data-toggle="tab">Trang chủ</a>
-   			</li>
-   			<li>
-   				<a href="#giaovienTab" data-toggle="tab">Danh Sách Giao Viên</a>
-   			</li>
-   			<li class="active">
-   				<a href="#saplichTab" data-toggle="tab">Sắp Lịch</a>
-   			</li>
-   			
-   		</ul>
-   		</div>
-   	</div>
-   	<div class="tab-content">
-   		<div id="saplichTab" class="tab-pane fade ">
-   			    	   
-    	   <div class="container">
- 			 <h3 align="center">SẮP LỊCH KHÓA LUẬN TỐT NGHIỆP</h3>
-  				<form >
+   	   
+    <div class="container">
+    	   <br>
+    	   <br>
+    	   <br>
+    	   <h3 align="center"><span align="center" style= "color:blue;font-weight:bold " >SẮP LỊCH KHÓA LUẬN TỐT NGHIỆP</span></h3>
+  				<form>
     				<div class="form-group">
-      					<label for="KHOA">KHOA:</label>
-     						 <input list="KHOA" class="form-control" placeholder="Chọn khoa" >
+      					<label for="KHOA">KHOA</label>
+     						 <input list="KHOA" class="form-control"  placeholder="Chọn khoa" >
      						 	<datalist id="KHOA">
 								    <option value="CÔNG NGHỆ THÔNG TIN">
 								    <option value="CÔNG NGHỆ MAY-THỜI TRANG">
@@ -58,27 +61,27 @@
 			 					</datalist>
     				</div>
   					<div class="btn btn-lg ">
-    					<a href="#" onclick="loadTaoHoiDong()" class="btn btn-default">TẠO HỘI ĐỒNG</a>
+    					<a href="#" onclick="loadTaoHoiDong()" class="btn btn-info">TẠO HỘI ĐỒNG</a>
     				</div>
     				<div class="btn btn-lg ">
-    					<a href="#" onclick="loadSuaHoiDong()" class="btn btn-default">XEM HỘI ĐỒNG</a>
-    				</div>
+    					<a href="#" onclick="loadSuaHoiDong()" class="btn btn-warning">XEM HỘI ĐỒNG</a>
+    				</div>	
   				</form>
-		</div>
-		<BR></BR>
-		
-		
+	</div>
+		<br>
+		<br>
+    <div class="container">
+     <div class="row">
+     </div>
+        <div id="footer">
+        <hr>
+            <h5 class="text-center text-danger">Khoa Công nghệ Thông tin - Đại học Sư phạm Kỹ thuật TP. Hồ Chí Minh</h5>
+            <h5 class="text-center text-danger">Số 1, Võ Văn Ngân, Thủ Đức, TP. Hồ Chí Minh</h5>
+        </div>
+    </div>   
+   		
 
-
-   
-   		</div>
-   		<div id="giaovienTab" class="tab-pane fade"></div>   		
-   		<div id="trangchuTab" class="tab-pane fade"></div>
-   </div>
-   
-   
-   
-    <script language = "javascript">					
+      <script language = "javascript">					
 				function loadTaoHoiDong() {
 					$("#saplichTab").load("TAO-HOIDONG.jsp");
 					    };		

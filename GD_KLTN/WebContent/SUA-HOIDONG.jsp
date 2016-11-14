@@ -8,8 +8,8 @@
 	<title>jQuery Validate</title>	
     <link href="customDiv.css" rel="stylesheet">
     <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">    
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-	
+   
+
 	
 	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="jquery.validate.min.js"></script>
@@ -26,7 +26,9 @@
 		color:red;
 		width: 200px;
 	}
-	
+	body {
+    background-color: whitesmoke;
+}
 	</style>
 </head>
 <body>

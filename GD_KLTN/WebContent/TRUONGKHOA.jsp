@@ -45,7 +45,24 @@ $(function() {
 });
 
 </script>
-    
+ 
+ <style type="text/css">
+	label {
+		display: inline-block;
+		width: 300px;
+	}
+	select {
+		width: 450px;
+	}
+	label.error {
+		display: inline-block;
+		color:red;
+		width: 200px;
+	}
+	body {
+    background-color: whitesmoke;
+}
+	</style>
   </head>
   <body>
    
@@ -72,394 +89,69 @@ $(function() {
    	</div>
    	<div class="tab-content">
    		<div id="saplichTab" class="tab-pane fade ">
-   			<h3 align="center">SẮP LỊCH KHÓA LUẬN TỐT NGHIỆP</h3>
-			
-   			<p>	  
-   			<div class="btn-toolbar">
-	   			<div class="btn-group btn-group-lg">
-		    		<button class="btn btn-default ">Chọn Khoa</button>
-		    		<button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-		    			<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu">
-						<li><a href="#"> Công Nghê Thông Tin</a></li>
-						<li><a href="#"> Điện-Điện Tử</a></li>
-						<li><a href="#"> Cơ Khí Chế Tạo Máy</a></li>
-						<li><a href="#"> Xây Dựng</a></li>
-						<li><a href="#"> Công Nghệ May Và Thiết Kế Thời Trang</a></li>
-					</ul>
-					
-			    	
-	    	    </div>
-	    	    <div class="btn-group btn-group-lg">
-		    		<button class="btn btn-default ">Chọn Chuyên ngành</button>
-		    		<button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-		    			<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu">
-						<li><a href="#"> Hệ thống thông tin</a></li>
-						<li><a href="#"> Mạng máy tính</a></li>
-						<li><a href="#"> Công nghệ phần mềm</a></li>						
-					</ul>
-					
-	    	    </div>
-    	   </div>
-    	   <br></br>
-    	  
-   	<div class="panel panel-success">
-   		<table class="table table-bordered table-center">
-   			<thead>
-	            <tr class="success">
-	                 <th>Ngày</th>
-	                 <th>Phòng</th>
-	                 <th>Hội Đồng</th>
-	                 <th>Thời gian BĐ</th>
-	                 <th>Thời gian KT</th>
-	                 <th>Tên GV</th>
-	                 <th>Vị trí GV</th>
-	            </tr>
-            </thead>
-          
-            <tbody>
-	            <tr>
-		            <td>Ngày</td>
-		            <td>
-			            <select name="phongtrong">
-						<option >A4-101</option>
-						<option >A5-303</option>
-						<option >A4-402</option>
-						</select>
-					</td>
-		            <td> 
-		            	<select name="hoidong">
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						</select>
-					</td>
-		            <td>
-		            	<select name="BD">
-						<option >7h</option>
-						<option >8h</option>
-						<option >9h</option>
-						<option >10h</option>
-						<option >11h</option>
-						</select>
-					</td>  
-		            <td>
-		            	<select name="KT">
-						<option >13h</option>
-						<option >14h</option>
-						<option >15h</option>
-						<option >16h</option>
-						<option >17h</option>
-						</select>
-		            </td>  
-		            <td>
-		            	<select name="GV1">
-							<option >Nguyễn Văn A</option>
-							<option >Nguyễn VĂn B</option>
-							<option >Nguyễn Thị C</option>
-							<option >Dương Thị D</option>
-							<option >Lê Văn H</option>
-						</select>
-						<br></br>
-						<select name="GV2">
-							<option >Nguyễn Văn A</option>
-							<option >Nguyễn VĂn B</option>
-							<option >Nguyễn Thị C</option>
-							<option >Dương Thị D</option>
-							<option >Lê Văn H</option>
-						</select>
-						<br></br>
-						<select name="GV3">
-							<option >Nguyễn Văn A</option>
-							<option >Nguyễn VĂn B</option>
-							<option >Nguyễn Thị C</option>
-							<option >Dương Thị D</option>
-							<option >Lê Văn H</option>
-						</select>
-					</td> 
-		            <td>
-			            <select name="VT1">
-							<option >Phản biện</option>
-							<option >Uỷ viên</option>
-							<option >Chủ tịch HĐ</option>
-						</select>
-						<br></br>
-						 <select name="VT2">
-							<option >Phản biện</option>
-							<option >Uỷ viên</option>
-							<option >Chủ tịch HĐ</option>
-						</select>
-						<br></br>
-						 <select name="VT3">
-							<option >Phản biện</option>
-							<option >Uỷ viên</option>
-							<option >Chủ tịch HĐ</option>
-						</select>
-		            </td>                          
-	            </tr>
-                <tr>
-	                <td>Ngày</td>
-		            <td>
-			            <select name="phongtrong">
-						<option >A4-101</option>
-						<option >A5-303</option>
-						<option >A4-402</option>
-						</select>
-					</td>
-		            <td> 
-		            	<select name="hoidong">
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						</select>
-					</td>
-		            <td>
-		            	<select name="BD">
-						<option >7h</option>
-						<option >8h</option>
-						<option >9h</option>
-						<option >10h</option>
-						<option >11h</option>
-						</select>
-					</td>  
-		            <td>
-		            	<select name="KT">
-						<option >13h</option>
-						<option >14h</option>
-						<option >15h</option>
-						<option >16h</option>
-						<option >17h</option>
-						</select>
-		            </td>  
-		            <td>
-		            	<select name="GV1">
-							<option >Nguyễn Văn A</option>
-							<option >Nguyễn VĂn B</option>
-							<option >Nguyễn Thị C</option>
-							<option >Dương Thị D</option>
-							<option >Lê Văn H</option>
-						</select>
-						<br></br>
-						<select name="GV2">
-							<option >Nguyễn Văn A</option>
-							<option >Nguyễn VĂn B</option>
-							<option >Nguyễn Thị C</option>
-							<option >Dương Thị D</option>
-							<option >Lê Văn H</option>
-						</select>
-						<br></br>
-						<select name="GV3">
-							<option >Nguyễn Văn A</option>
-							<option >Nguyễn VĂn B</option>
-							<option >Nguyễn Thị C</option>
-							<option >Dương Thị D</option>
-							<option >Lê Văn H</option>
-						</select>
-					</td> 
-		            <td>
-			            <select name="VT1">
-							<option >Phản biện</option>
-							<option >Uỷ viên</option>
-							<option >Chủ tịch HĐ</option>
-						</select>
-						<br></br>
-						 <select name="VT2">
-							<option >Phản biện</option>
-							<option >Uỷ viên</option>
-							<option >Chủ tịch HĐ</option>
-						</select>
-						<br></br>
-						 <select name="VT3">
-							<option >Phản biện</option>
-							<option >Uỷ viên</option>
-							<option >Chủ tịch HĐ</option>
-						</select>
-		            </td>                          
-	            </tr>                
-             
-                <tr>
-	                <td>Ngày</td>
-		            <td>
-			            <select name="phongtrong">
-						<option >A4-101</option>
-						<option >A5-303</option>
-						<option >A4-402</option>
-						</select>
-					</td>
-		            <td> 
-		            	<select name="hoidong">
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						</select>
-					</td>
-		            <td>
-		            	<select name="BD">
-						<option >7h</option>
-						<option >8h</option>
-						<option >9h</option>
-						<option >10h</option>
-						<option >11h</option>
-						</select>
-					</td>  
-		            <td>
-		            	<select name="KT">
-						<option >13h</option>
-						<option >14h</option>
-						<option >15h</option>
-						<option >16h</option>
-						<option >17h</option>
-						</select>
-		            </td>  
-		            <td>
-		            	<select name="GV1">
-							<option >Nguyễn Văn A</option>
-							<option >Nguyễn VĂn B</option>
-							<option >Nguyễn Thị C</option>
-							<option >Dương Thị D</option>
-							<option >Lê Văn H</option>
-						</select>
-						<br></br>
-						<select name="GV2">
-							<option >Nguyễn Văn A</option>
-							<option >Nguyễn VĂn B</option>
-							<option >Nguyễn Thị C</option>
-							<option >Dương Thị D</option>
-							<option >Lê Văn H</option>
-						</select>
-						<br></br>
-						<select name="GV3">
-							<option >Nguyễn Văn A</option>
-							<option >Nguyễn VĂn B</option>
-							<option >Nguyễn Thị C</option>
-							<option >Dương Thị D</option>
-							<option >Lê Văn H</option>
-						</select>
-					</td> 
-		            <td>
-			            <select name="VT1">
-							<option >Phản biện</option>
-							<option >Uỷ viên</option>
-							<option >Chủ tịch HĐ</option>
-						</select>
-						<br></br>
-						 <select name="VT2">
-							<option >Phản biện</option>
-							<option >Uỷ viên</option>
-							<option >Chủ tịch HĐ</option>
-						</select>
-						<br></br>
-						 <select name="VT3">
-							<option >Phản biện</option>
-							<option >Uỷ viên</option>
-							<option >Chủ tịch HĐ</option>
-						</select>
-		            </td>                          
-	            </tr>
-                <tr>
-	                <td>Ngày</td>
-		            <td>
-			            <select name="phongtrong">
-						<option >A4-101</option>
-						<option >A5-303</option>
-						<option >A4-402</option>
-						</select>
-					</td>
-		            <td> 
-		            	<select name="hoidong">
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						</select>
-					</td>
-		            <td>
-		            	<select name="BD">
-						<option >7h</option>
-						<option >8h</option>
-						<option >9h</option>
-						<option >10h</option>
-						<option >11h</option>
-						</select>
-					</td>  
-		            <td>
-		            	<select name="KT">
-						<option >13h</option>
-						<option >14h</option>
-						<option >15h</option>
-						<option >16h</option>
-						<option >17h</option>
-						</select>
-		            </td>  
-		            <td>
-		            	<select name="GV1">
-							<option >Nguyễn Văn A</option>
-							<option >Nguyễn VĂn B</option>
-							<option >Nguyễn Thị C</option>
-							<option >Dương Thị D</option>
-							<option >Lê Văn H</option>
-						</select>
-						<br></br>
-						<select name="GV2">
-							<option >Nguyễn Văn A</option>
-							<option >Nguyễn VĂn B</option>
-							<option >Nguyễn Thị C</option>
-							<option >Dương Thị D</option>
-							<option >Lê Văn H</option>
-						</select>
-						<br></br>
-						<select name="GV3">
-							<option >Nguyễn Văn A</option>
-							<option >Nguyễn VĂn B</option>
-							<option >Nguyễn Thị C</option>
-							<option >Dương Thị D</option>
-							<option >Lê Văn H</option>
-						</select>
-					</td> 
-		            <td>
-			            <select name="VT1">
-							<option >Phản biện</option>
-							<option >Uỷ viên</option>
-							<option >Chủ tịch HĐ</option>
-						</select>
-						<br></br>
-						 <select name="VT2">
-							<option >Phản biện</option>
-							<option >Uỷ viên</option>
-							<option >Chủ tịch HĐ</option>
-						</select>
-						<br></br>
-						 <select name="VT3">
-							<option >Phản biện</option>
-							<option >Uỷ viên</option>
-							<option >Chủ tịch HĐ</option>
-						</select>
-		            </td>                          
-	            </tr>                      
-        	</tbody>
-   		</table>
+   		<div class="container">
+    	   <br>
+    	   <br>
+    	   <br>
+    	   <h3 align="center"><span align="center" style= "color:blue;font-weight:bold " >SẮP LỊCH KHÓA LUẬN TỐT NGHIỆP</span></h3>
+  				<form>
+    				<div class="form-group">
+      					<label for="KHOA">KHOA</label>
+     						 <input list="KHOA" class="form-control"  placeholder="Chọn khoa" >
+     						 	<datalist id="KHOA">
+								    <option value="CÔNG NGHỆ THÔNG TIN">
+								    <option value="CÔNG NGHỆ MAY-THỜI TRANG">
+								    <option value="CƠ KHÍ MÁY">
+								    <option value="ĐIỆN-ĐIỆN TỬ">
+								    <option value="KINH TẾ">
+								    <option value="XÂY DỰNG">
+								    <option value="SƯ PHẠM ANH">
+			  					</datalist>
+			  				
+   					 </div>
+  					 <div class="form-group">
+  						 <label for="NGÀNH">CHUYÊN NGÀNH</label>
+      						<input list="NGÀNH" class="form-control" placeholder="Chọn chuyên ngành" >
+      						 	<datalist id="NGÀNH">
+								    <option value="HỆ THỐNG THÔNG TIN">
+								    <option value="MẠNG MÁY TÍNH">
+								    <option value="CÔNG NGHỆ PHẦN MỀM">
+			 					</datalist>
+    				</div>
+  					<div class="btn btn-lg ">
+    					<a href="#" onclick="loadTaoHoiDong()" class="btn btn-info">TẠO HỘI ĐỒNG</a>
+    				</div>
+    				<div class="btn btn-lg ">
+    					<a href="#" onclick="loadSuaHoiDong()" class="btn btn-warning">XEM HỘI ĐỒNG</a>
+    				</div>	
+  				</form>
+	</div>
+		<br>
+		<br>
+    <div class="container">
+     <div class="row">
+     </div>
+        <div id="footer">
+        <hr>
+            <h5 class="text-center text-danger">Khoa Công nghệ Thông tin - Đại học Sư phạm Kỹ thuật TP. Hồ Chí Minh</h5>
+            <h5 class="text-center text-danger">Số 1, Võ Văn Ngân, Thủ Đức, TP. Hồ Chí Minh</h5>
+        </div>
+    </div>   
    		
-   	</div><ul class="pagination pull-right">
-    	<li><a href="#">&laquo;</a></li>
-    	<li><a href="#">1</a></li>
-    	<li><a href="#">2</a></li>
-    	<li><a href="#">3</a></li>
-    	<li><a href="#">4</a></li>
-    	<li><a href="#">5</a></li>
-    	<li><a href="#">&raquo;</a></li>
-    </ul>
-    <br></br>
-     <br></br>
-       
-    	
-   		<div class="btn btn-lg pull-right">
-	    	<a href="#" class="btn btn-danger">Lưu</a>
-    	</div>
-    	
-    
-   	</p>
+
+      <script language = "javascript">					
+				function loadTaoHoiDong() {
+					$("#saplichTab").load("TAO-HOIDONG.jsp");
+					    };		
+					
+</script>
+    <script language = "javascript">					
+				function loadSuaHoiDong() {
+					$("#saplichTab").load("SUA-HOIDONG.jsp");
+					    };		
+					
+</script>
+	
    		</div>
    		<div id="giaovienTab" class="tab-pane fade">
    			<p> <div class="btn-group btn-group-lg">
@@ -770,15 +462,16 @@ $(function() {
 				function loadthemdt() {
 					$("#detaiTab").load("ADD-DTM.jsp");
 					    };
-					   function loadthemttgv() {
-							$("#giaovienTab").load("ADD-TTGV.jsp");
-							    };
-							    function loadTMTK() {
-									$("#qltkTab").load("ADD-TKM.jsp");
-									    };
-									    function loadthempt() {
-											$("#phongTab").load("ADD-PT.jsp");
-											    };
+				function loadthemttgv() {
+					$("#giaovienTab").load("ADD-TTGV.jsp");
+						};
+				function loadTMTK() {
+					$("#qltkTab").load("ADD-TKM.jsp");
+						 };
+				 function loadthempt() {
+					$("#phongTab").load("ADD-PT.jsp");
+						};
+			
 											    
 					
 					

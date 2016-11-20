@@ -108,70 +108,18 @@ $(function() {
    		<table class="table table-bordered table-center">
    			<thead>
 	            <tr class="success">
-	                 <th>STT</th>
-	                 <th>Tên Đề Tài</th>
+	                <th>Tên Đề Tài</th>
 	                 <th>GVHD</th>
-	                 <th>Chi Tiết</th>
+	                 <th>Số Lượng Sinh Viên</th>
+	                 <th>Mô Tả</th>
+	                 <th>File Báo Cáo</th>
+	                 <th>Sinh Viên Thực Hiện</th>
+	                 <th>Điểm</th>
+	                 <th>Nhận Xét</th>
 	            </tr>
             </thead>
             <tbody>
-	            <tr>
-		            <td>1</td>
-		            <td>Zoho CRM</td>
-		            <td>Nguyễn Thanh Tuấn </td>
-		            <td><div class="btn">
-    		<a href="file:///D:/TAI%20LIEU%20CAC%20MON%20HOC/LTWEB/workspace/GD_KLTN/WebContent/CTĐT1.html" class="btn btn-warning">Chi Tiết</a>
-    	</div></td>                            
-	            </tr>
-                <tr>
-	                <td>2</td>
-	                <td>Python for data analynis</td>
-	                <td>Hoang Long</td>
-	                <td><div class="btn">
-    		<a href="file:///D:/TAI%20LIEU%20CAC%20MON%20HOC/LTWEB/workspace/GD_KLTN/WebContent/CTĐT2.html" class="btn btn-warning">Chi Tiết</a>
-    	</div></td>                            
-                </tr>
-                <tr>
-	                <td>3</td>
-	                <td>Supervised Descriptive Rule Discovery</td>
-	                <td>Nguyễn Thành Sơn</td>
-	                <td><div class="btn">
-    		<a href="file:///D:/TAI%20LIEU%20CAC%20MON%20HOC/LTWEB/workspace/GD_KLTN/WebContent/CTĐT3.html" class="btn btn-warning">Chi Tiết</a>
-    	</div></td>
-                </tr> 
-                  <tr>
-	                <td>4</td>
-	                <td>Xây dựng ứng dụng di động bằng React Native</td>
-	                <td>Nguyễn Trần Thi Văn</td>
-	                <td><div class="btn">
-    		<a href="file:///D:/TAI%20LIEU%20CAC%20MON%20HOC/LTWEB/workspace/GD_KLTN/WebContent/CTĐT4.html" class="btn btn-warning">Chi Tiết</a>
-    	</div></td>
-                </tr> 
-                <tr>
-	                <td>5</td>
-	                <td>Tìm hiểu Android SDK</td>
-	                <td>Lê Văn Vinh</td>
-	                <td><div class="btn">
-    		<a href="file:///D:/TAI%20LIEU%20CAC%20MON%20HOC/LTWEB/workspace/GD_KLTN/WebContent/CTĐT5.html" class="btn btn-warning">Chi Tiết</a>
-    	</div></td>
-                </tr> 
-                 <tr>
-	                <td>6</td>
-	                <td>Game đánh vần trên Android</td>
-	                <td>Đặng Thị Kim Giao</td>
-	                <td><div class="btn">
-    		<a href="#file:///D:/TAI%20LIEU%20CAC%20MON%20HOC/LTWEB/workspace/GD_KLTN/WebContent/CTĐT6.html" class="btn btn-warning">Chi Tiết</a>
-    	</div></td>
-                </tr>  
-                <tr>
-	                <td>7</td>
-	                <td>Xây dựng chương trình Elearning</td>
-	                <td>Nguyễn Hữu Trung</td>
-	                <td><div class="btn">
-    		<a href="file:///D:/TAI%20LIEU%20CAC%20MON%20HOC/LTWEB/workspace/GD_KLTN/WebContent/CTĐT7.html" class="btn btn-warning">Chi Tiết</a>
-    	</div></td>
-                </tr>                                 
-        	</tbody>
+	        </tbody>
    		</table>
    		
    	</div><ul class="pagination pull-right">

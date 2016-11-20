@@ -16,6 +16,7 @@
  border-bottom-width:1px;
  padding-bottom:10px;
  text-align: center;
+ color: green;
 }
 	</style>
 </head>

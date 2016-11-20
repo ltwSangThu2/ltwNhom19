@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    	<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+    	<sql:setDataSource 	driver="com.mysql.jdbc.Driver"    	
+		url="jdbc:mysql://localhost/kltn" 
+		user="root" 
+		password="1234"/>
+	<sql:query var="items" sql="SELECT * FROM taikhoan"/>  
+	<sql:query var="items2" sql="SELECT * FROM phongtrong"/>  
 	<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -172,11 +180,9 @@ $(function() {
    			<div class="panel panel-default">
    		<table class="table table-bordered table-center">
    			<thead>
-	            <tr class="success">
-	                 <th>MÃ GV</th>
-	                 <th>KHOA</th>
+	       <th>MÃ GV</th>
 	                 <th>HỌ VÀ TÊN</th>
-	                 <th>CHUYÊN NGÀNH</th>	                 
+	                 <th>BỘ MÔN</th>	                 
 	                 <th>NGÀY SINH</th>
 	                 <th>GIỚI TÍNH</th>
 	                 <th>SỐ ĐIỆN THOẠI</th>
@@ -184,26 +190,18 @@ $(function() {
 	            </tr>
             </thead>
             <tbody>
-	            <tr>
-		            <td>123456</td>
-			        <td>CNTT</td>
-			        <td>Nguyễn Văn An</td>
-			        <td>HTTT</td>
-			        <td>1/1/1970</td>
-			        <td>Nam</td>
-			        <td>0976856738</td>
-			        <td>annguyen@gmail.com</td>            
-				</tr>   		            
-	            <tr>
-		            <td>123458</td>
-			        <td>CNTT</td>
-			        <td>Nguyễn Thị Trang</td>
-			        <td>Mạng</td>
-			        <td>1/1/1980</td>
-			        <td>Nữ</td>
-			        <td>0976856345</td>
-			        <td>trangnguyen@gmail.com</td>	
-		        </tr>  
+	           <c:forEach items="${items.rows}" var="row">			
+								<tr>		
+										<td>${row.IDTK}</td>	
+										<td>${row.HoTen}</td>	
+										<td>${row.BoMon}</td>	
+										<td>${row.NgaySinh}</td>
+										<td>${row.GioiTinh}</td>	
+										<td>${row.SDT}</td>	
+										<td>${row.Email}</td>		
+										
+								</tr>							
+							</c:forEach>
         	</tbody>
    		</table>
    		
@@ -255,71 +253,20 @@ $(function() {
     </div>
    			<div class="panel panel-default">
    		<table class="table table-bordered table-center">
-   			<thead>
+   				<thead>
 	            <tr class="success">
-	                 <th>STT</th>
 	                 <th>Tên Đề Tài</th>
 	                 <th>GVHD</th>
-	                 <th>Chi Tiết</th>
+	                 <th>Số Lượng Sinh Viên</th>
+	                 <th>Mô Tả</th>
+	                 <th>File Báo Cáo</th>
+	                 <th>Sinh Viên Thực Hiện</th>
+	                 <th>Điểm</th>
+	                 <th>Nhận Xét</th>
 	            </tr>
             </thead>
             <tbody>
-	            <tr>
-		            <td>1</td>
-		            <td>Zoho CRM</td>
-		            <td>Nguyễn Thanh Tuấn </td>
-		            <td><div class="btn">
-    		<a href="#" class="btn btn-warning">Chi Tiết</a>
-    	</div></td>                            
-	            </tr>
-                <tr>
-	                <td>2</td>
-	                <td>Python for data analynis</td>
-	                <td>Hoang Long</td>
-	                <td><div class="btn">
-    		<a href="#" class="btn btn-warning">Chi Tiết</a>
-    	</div></td>                            
-                </tr>
-                <tr>
-	                <td>3</td>
-	                <td>Supervised Descriptive Rule Discovery</td>
-	                <td>Nguyễn Thành Sơn</td>
-	                <td><div class="btn">
-    		<a href="#" class="btn btn-warning">Chi Tiết</a>
-    	</div></td>
-                </tr> 
-                  <tr>
-	                <td>4</td>
-	                <td>Xây dựng ứng dụng di động bằng React Native</td>
-	                <td>Nguyễn Trần Thi Văn</td>
-	                <td><div class="btn">
-    		<a href="#" class="btn btn-warning">Chi Tiết</a>
-    	</div></td>
-                </tr> 
-                <tr>
-	                <td>5</td>
-	                <td>Tìm hiểu Android SDK</td>
-	                <td>Lê Văn Vinh</td>
-	                <td><div class="btn">
-    		<a href="#" class="btn btn-warning">Chi Tiết</a>
-    	</div></td>
-                </tr> 
-                 <tr>
-	                <td>6</td>
-	                <td>Game đánh vần trên Android</td>
-	                <td>Đặng Thị Kim Giao</td>
-	                <td><div class="btn">
-    		<a href="#" class="btn btn-warning">Chi Tiết</a>
-    	</div></td>
-                </tr>  
-                <tr>
-	                <td>7</td>
-	                <td>Xây dựng chương trình Elearning</td>
-	                <td>Nguyễn Hữu Trung</td>
-	                <td><div class="btn">
-    		<a href="#" class="btn btn-warning">Chi Tiết</a>
-    	</div></td>
-                </tr>                                 
+	           
         	</tbody>
    		</table>
    		
@@ -357,11 +304,13 @@ $(function() {
     		<span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu">
-			<li><a href="#">A1</a></li>
-			<li><a href="#">A2</a></li>
-			<li><a href="#">A3</a></li>
-			<li><a href="#">A4</a></li>
-			<li><a href="#">A5</a></li>
+			<ul class="dropdown-menu">
+			<li><a href="#">A</a></li>
+			<li><a href="#">B</a></li>
+			<li><a href="#">TNTT</a></li>
+			<li><a href="#">C</a></li>
+			<li><a href="#">D</a></li>
+		</ul>
 		</ul>
     	<br></br>
     	<br></br>
@@ -369,40 +318,23 @@ $(function() {
    			<div class="panel panel-default">
    		<table class="table table-bordered table-center">
    				<thead>
-		            <tr class="success">
+		           <tr class="success">
+		           		 <th>TÊN KHU</th>
 		                 <th>TÊN PHÒNG</th>
 		                 <th>NGÀY TRỐNG</th>
-		                 <th>GIỜ TRỐNG</th>
+		               
 		            </tr>
             	</thead>
-            	<tbody>
-		            <tr>
-			            <td>A3-403</td>
-			            <td>
-				            <br>- 05/07/2016</br>
-				            <br>- 06/07/2016</br>
-				            <br>- 09/07/2016</br>
-						</td>
-			            <td>
-				            <br>- 7h00:11h30</br>
-				            <br>- 12h00:5h00</br>
-				            <br>- 7h00:11h30</br>
-			            </td>                   
-		            </tr>
-		            <tr>
-			            <td>A3-403</td>
-			            <td>
-				            <br>- 05/07/2016</br>
-				            <br>- 06/07/2016</br>
-				            <br>- 09/07/2016</br>
-						</td>
-			            <td>
-				            <br>- 7h00:11h30</br>
-				            <br>- 12h00:5h00</br>
-				            <br>- 7h00:11h30</br>
-			            </td>                   
-		            </tr>
-                           
+            	  <tbody>
+	           <c:forEach items="${items2.rows}" var="row">			
+								<tr>		
+										<td>${row.TenKhu}</td>
+										<td>${row.TenP}</td>	
+										<td>${row.NgayTrong}</td>	
+											
+										
+								</tr>							
+							</c:forEach>
         	</tbody>
    		</table>
    		

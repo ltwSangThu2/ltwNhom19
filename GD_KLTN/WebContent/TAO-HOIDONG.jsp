@@ -35,79 +35,10 @@
 	<br></br>
 	<form >
 			<div class="form-group">
-				<label>Tên Hội Đồng</label>
+				<label>TÊN HỘI ĐỒNG</label>
 				<input class="form-control" type="text" id="HD" name="HD" placeholder="Nhập tên hội đồng" required>
 			</div>	
 			<div class="form-group">
-      			<label for="GVPB">GIÁO VIÊN PHẢN BIỆN :</label>
-     			<input type="text" list="DSGV" class="form-control" placeholder="Chọn giáo viên phản biện" >
-     				<datalist id="DSGV" >
-								    <option value="CÔNG NGHỆ THÔNG TIN">
-								    <option value="CÔNG NGHỆ MAY-THỜI TRANG">
-								    <option value="CƠ KHÍ MÁY">
-								    <option value="ĐIỆN-ĐIỆN TỬ">
-								    <option value="KINH TẾ">
-								    <option value="XÂY DỰNG">
-								    <option value="SƯ PHẠM ANH">
-			  		</datalist>			  				
-   			</div>
-   			
-   			<div class="form-group">
-      			<label for="UV">ỦY VIÊN HỘI ĐỒNG:</label>
-     			<input type="text" list="DSGV" class="form-control" placeholder="Chọn vị trí ủy viên " >
-     				<datalist id="DSGV">
-								    <option value="CÔNG NGHỆ THÔNG TIN">
-								    <option value="CÔNG NGHỆ MAY-THỜI TRANG">
-								    <option value="CƠ KHÍ MÁY">
-								    <option value="ĐIỆN-ĐIỆN TỬ">
-								    <option value="KINH TẾ">
-								    <option value="XÂY DỰNG">
-								    <option value="SƯ PHẠM ANH">
-			  		</datalist>
-   			</div>
-			<div class="form-group">
-      			<label for="CTHD">ỦY VIÊN HỘI ĐỒNG:</label>
-     			<input type="text" list="DSGV" class="form-control" placeholder="Chọn chủ tịch hội đồng " >
-     				<datalist id="DSGV">
-								    <option value="CÔNG NGHỆ THÔNG TIN">
-								    <option value="CÔNG NGHỆ MAY-THỜI TRANG">
-								    <option value="CƠ KHÍ MÁY">
-								    <option value="ĐIỆN-ĐIỆN TỬ">
-								    <option value="KINH TẾ">
-								    <option value="XÂY DỰNG">
-								    <option value="SƯ PHẠM ANH">
-			  		</datalist>
-   			</div>
-   			<div class="form-group">
-      			<label for="NGAY">NGÀY BẢO VỆ:</label>
-     			<input type="text" list="DSNT" class="form-control" placeholder="Chọn ngày bảo vệ khóa luận" >
-     				<datalist id="DSNT">
-								    <option value="04/06/2016">
-								    <option value="05/07/2016">
-								    <option value="08/07/2016">
-			  		</datalist>
-   			</div>
-   			<div class="form-group">
-      			<label for="PHONG">PHÒNG TRỐNG:</label>
-     			<input type="text" list="DSPT" class="form-control" placeholder="Chọn phòng trống " >
-     				<datalist id="DSPT">
-								    <option value="A4-401">
-								    <option value="A4-404">
-								    <option value="A4-303">
-								  
-			  		</datalist>
-   			</div>
-   			<div class="form-group">
-      			<label for="GIO">GIỜ TRỐNG:</label>
-     			<input type="text" list="DSGT" class="form-control" placeholder="Chọn giờ trống " >
-     				<datalist id="DSGT">
-								    <option value="7h-7h30">
-								    <option value="8h-9h">
-								    <option value="10h-11h">
-								  
-			  		</datalist>
-   			</div>
-<div class="form-group">
 	<label >CHỌN ĐỀ TÀI CHO HỘI ĐỒNG</label>
 	<table class="table table-bordered " >
 	   			<thead>
@@ -194,22 +125,67 @@
 	        	</tbody>
 	   		</table>
 </div>   
+			<div class="form-group">
+      			<label>PHẢN BIỆN </label>
+     			<input type="text" list="DSGV" name="GVPB" class="form-control" placeholder="Chọn giáo viên phản biện" >
+     				<datalist id="DSGV">
+								    <option value="Hà Thị Thùy Dung">
+								    <option value="Dương Ái Châu">
+			  		</datalist>			  				
+   			</div>
+   			
+   			<div class="form-group">
+      			<label>ỦY VIÊN</label>
+     			<input type="text" list="DSGV" name="UV" class="form-control" placeholder="Chọn vị trí ủy viên " >
+     				<datalist id="DSGV">
+								     <option value="Hà Tăng">
+								    <option value="Dương Chấn">
+			  		</datalist>
+   			</div>
+			<div class="form-group">
+      			<label>CHỦ TỊCH HĐ</label>
+     			<input type="text" list="DSGV" name="CTHD" class="form-control" placeholder="Chọn chủ tịch hội đồng " >
+     				<datalist id="DSGV">
+								    <option value="Hà Tăng">
+								    <option value="Dương Ái Châu">
+								    <option value="Hoàng Long">
+			  		</datalist>
+   			</div>
+   			<div class="form-group">
+      			<label>NGÀY BẢO VỆ</label>
+     			<input type="text" list="DSNT" name="NBV" class="form-control" placeholder="Chọn ngày bảo vệ khóa luận" >
+     				<datalist id="DSNT">
+								    <option value="04/06/2016">
+								    <option value="05/07/2016">
+								    <option value="08/07/2016">
+			  		</datalist>
+   			</div>
+   			<div class="form-group">
+      			<label>TÊN PHÒNG:</label>
+     			<input type="text" list="DSPT" name="TP" class="form-control" placeholder="Chọn phòng " >
+     				<datalist id="DSPT">
+								    <option value="A4-401">
+								    <option value="A4-404">
+								    <option value="A4-303">
+								  
+			  		</datalist>
+   			</div>
+   			<div class="form-group">
+      			<label>GIỜ BÁO CÁO</label>
+     			<input type="text" list="DSGT" name="GBC" class="form-control" placeholder="Chọn thời gian" >
+     				<datalist id="DSGT">
+								    <option value="7h-7h30">
+								    <option value="8h-9h">
+								    <option value="10h-11h">
+								  
+			  		</datalist>
+   			</div>
+
 </form>
 </div>			
 <div class="container">  
   <button type="button" class="btn btn-danger">RESET</button>
   <button type="button" class="btn btn-primary">SAVE</button>
  </div> 
- <br>
- <br>
-  <div class="container">
-     <div class="row">
-     </div>
-        <div id="footer">
-        <hr>
-            <h5 class="text-center text-danger">Khoa Công nghệ Thông tin - Đại học Sư phạm Kỹ thuật TP. Hồ Chí Minh</h5>
-            <h5 class="text-center text-danger">Số 1, Võ Văn Ngân, Thủ Đức, TP. Hồ Chí Minh</h5>
-        </div>
-    </div>   
 </body>
 </html>

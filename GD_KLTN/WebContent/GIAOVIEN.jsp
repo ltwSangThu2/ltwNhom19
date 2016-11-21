@@ -182,65 +182,16 @@ $(function() {
 	                 <th>Ngày</th>
 	                 <th>Phòng</th>
 	                 <th>Hội Đồng</th>
-	                 <th>Thời Gian Bắt Đầu</th>
-	                 <th>Thời Gian Kết Thúc</th>
-	                 <th>Giáo Viên</th>
-	                 <th>Vị Trí</th>
+	                 <th>Thời Gian Báo Cáo</th>
+	                 <th>Phản Biện</th>
+	                 <th>Hướng Dẫn</th>
+	                 <th>Ủy Viên</th>
+	                 <th>Chủ Tịch HĐ</th>
+	                 
 	            </tr>
             </thead>
             <tbody>
-	            <tr>
-		            <td>01/07/2016</td>
-		            <td>A4-402</td>
-		            <td>Số 1 </td>
-		            <td>7h </td>
-		            <td>9h </td>
-		            <td>
-		            <br>Ngô Nha</br>
-		            <br>Nguyễn Thụy</br>
-		            <br>Ngô Thùy</br>
-		            </td>
-		            <td>
-		            <br>Phản Biện</br>
-		            <br>Chủ Tịch HĐ</br>
-		            <br>Uỷ Viên</br>
-		            </td>                            
-	            </tr>
-                <tr>
-	               <td>01/07/2016</td>
-		            <td>A4-402</td>
-		            <td>Số 2 </td>
-		            <td>9h30 </td>
-		            <td>11h30 </td>
-		            <td>
-		            <br>Trần Thi</br>
-		            <br>Hạ Vy</br>
-		            <br>Hoàng Tôn</br>
-		            </td>
-		            <td>
-		            <br>Phản Biện</br>
-		            <br>Chủ Tịch HĐ</br>
-		            <br>Uỷ Viên</br>
-		            </td>                                   
-                </tr>
-                <tr>
-	                <td>01/07/2016</td>
-		            <td>A4-303</td>
-		            <td>Số 3 </td>
-		            <td>12h </td>
-		            <td>16h </td>
-		            <td>
-		            <br>Kha Chấn</br>
-		            <br>Cao Lý</br>
-		            <br>Vũ Hiếu</br>
-		            </td>
-		            <td>
-		            <br>Phản Biện</br>
-		            <br>Chủ Tịch HĐ</br>
-		            <br>Uỷ Viên</br>
-		            </td>              
-                </tr> 
-                                                
+	                        
         	</tbody>
    		</table>
    		

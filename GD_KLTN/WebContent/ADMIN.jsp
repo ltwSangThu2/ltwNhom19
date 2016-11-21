@@ -285,7 +285,7 @@ $(function() {
    		</div>
    		<div id="qltkTab" class="tab-pane fade">
    		<p>
-   				<div class="row">
+   	<div class="row">
     <div class="search col-md-6 col-sm-6 col-xs-12 text">
         <form method="get" action="#">
           <input type="text" placeholder="Nhập tài khoản cần tìm" id="q" name="q" value="">
@@ -313,11 +313,16 @@ $(function() {
    		<table class="table table-bordered table-center table-striped">
    			<thead>
 	            <tr class="danger">
-	                 <th>Chọn</th>
-	                 <th>Tài Khoản</th>
-	                 <th>Tên Tài Khoản</th>
-	                 <th>Email</th>
-	                 <th>Quyền</th>
+	                 <th>CHỌN</th>
+	                 <th>HỌ VÀ TÊN</th>
+	                 <th>CHUYÊN NGÀNH</th>
+	                 <th>BỘ MÔN</th>	                 
+	                 <th>NGÀY SINH</th>
+	                 <th>GIỚI TÍNH</th>
+	                 <th>SỐ ĐIỆN THOẠI</th>
+	                 <th>EMAIL</th>
+	                 <th>MẬT KHẨU</th>
+	                 <th>QUYỀN</th>
 	            </tr>
             </thead>
             <tbody>
@@ -325,29 +330,31 @@ $(function() {
 		            <td>
 		            	<input type="checkbox" name="vehicle" value="TK"></br>
 		            </td>
-		            <td>Trưởng Khoa/Bộ Môn</td>
-		            <td>Dung1234 </td>
-		            <td>Dung25@gmail.com</td>  
-		            <td>Trưởng Khoa/Bộ Môn</td>                            
+		            <td>Hà Dung</td>
+		            <td>Hệ Thống Thông Tin</td>
+		            <td>Kho Dữ Liệu </td>
+		             <td>1995-07-21 </td>
+		             <td>Nữ </td>
+		             <td>0989876545 </td>
+		            <td>Dung12@gmail.com</td>  
+		             <td>123</td>
+		            <td>Trưởng Khoa</td>                            
 	            </tr>
                 <tr>
 	                <td>
 		            	<input type="checkbox" name="vehicle" value="GV"></br>
 		            </td>
-		            <td>Giáo Viên</td>
-		            <td>Chau1234 </td>
+		             <td>Ái Châu</td>
+		            <td>Công Nghệ Phần Mềm</td>
+		            <td>Lập Trình Web </td>
+		             <td>1995-09-27 </td>
+		             <td>Nữ </td>
+		              <td>0997666543 </td>
 		            <td>Chau123@gmail.com</td>  
-		            <td>Giáo Viên</td>                       
+		            <td>123</td>
+		            <td>Giáo Viên</td>                     
                 </tr>
-                <tr>
-	                <td>
-		            	<input type="checkbox" name="vehicle" value="SV"></br>
-		            </td>
-		            <td>Sinh Viên</td>
-		            <td>Hoang1234 </td>
-		            <td>Hoang12@gmail.com</td>  
-		            <td>Sinh Viên</td> 
-                </tr> 
+             
                                     
         	</tbody>
    		</table>
@@ -366,10 +373,10 @@ $(function() {
     
     </div>
    	</p>
-   		</p>
-   		</div>
+   	</div>
+   		
    </div>
-   </div>
+   
   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>

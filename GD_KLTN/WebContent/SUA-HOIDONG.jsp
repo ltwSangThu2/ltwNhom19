@@ -6,13 +6,12 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>jQuery Validate</title>	
-    <link href="customDiv.css" rel="stylesheet">
-    <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">    
-   
-
-	
-	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+     <link href="customDiv.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="jquery.validate.min.js"></script>
+	  <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 	<style type="text/css">
 	label {
 		display: inline-block;
@@ -29,6 +28,13 @@
 	body {
     background-color: whitesmoke;
 }
+h1 { 
+ border:0 solid #fff; 
+ border-bottom-width:1px;
+ padding-bottom:10px;
+ text-align: center;
+ color: brown;
+}
 	</style>
 </head>
 <body>
@@ -36,24 +42,30 @@
 <br></br>
 	<form  >
 	<div class="form-group">
-	<label >DANH SÁCH HỘI ĐỒNG</label>
+	<h1>DANH SÁCH HỘI ĐỒNG</h1><br>
 	<div class="table-responsive">
        <table class="table table-striped table-bordered table-hover">
            <thead>
                <tr>
-                    <th>STT</th>
                     <th>Tên Hội Đồng</th>
                     <th>Chủ Tịch Hội Đồng</th>
                     <th>Uỷ Viên</th>
+                    <th>Phản Biện</th>
+                    <th>Ngày Bảo Vệ</th>
+                    <th>Phòng</th>
+                    <th>Giờ Báo Cáo</th>
                     <th>Tuỳ Chỉnh</th>
                </tr>
            </thead>
            <tbody>
               <tr>
-                    <td>1</td>
                     <td>Hội đồng BVKLTN 1</td>
                     <td>Đặng Thanh Dũng</td>
                     <td>Nguyễn Minh Đạo</td>
+                    <td>Tô Ánh Ngọc</td>
+                    <td>13/06/2016</td>
+                    <td>A4-402</td>
+                    <td>7h-8h</td>
                     <td class="text-center">
                         <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#ChinhSuaHD">
                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Sửa
@@ -64,10 +76,13 @@
                    </td>
               </tr>
               <tr>
-                    <td>2</td>
-                    <td>Hội Đồng BVKLTN 2</td>
-                    <td>Nguyễn Văn A</td>
-                    <td>Mai Tuấn Khôi</td>
+                   <td>Hội đồng BVKLTN 2</td>
+                    <td>Đặng Thanh Sang</td>
+                    <td>Nguyễn Minh Tiến</td>
+                    <td>Hà Kim Giao</td>
+                    <td>10/06/2016</td>
+                    <td>A3-302</td>
+                    <td>7h-8h</td>
                     <td class="text-center">
               <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#ChinhSuaHD">
               <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Sửa
@@ -104,11 +119,25 @@
                         <label for="name">Uỷ viên:</label>
                         <input type="text" class="form-control" id="uyvien" required value="Nguyễn Minh Đạo">
                     </div>
-
-
+					 <div class="form-group">
+                        <label for="name">Phản biện:</label>
+                        <input type="text" class="form-control" id="phanbien" required value="Tô Ánh Ngọc">
+                    </div>
+					<div class="form-group">
+                        <label for="name">Ngày Bảo Vệ:</label>
+                        <input type="text" class="form-control" id="ngaybv" required value="13/06/2016">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Tên Phòng:</label>
+                        <input type="text" class="form-control" id="TP" required value="A4-402">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Giờ Báo Cáo:</label>
+                        <input type="text" class="form-control" id="giobc" required value="7h-8h">
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Sửa</button>
+                    <button type="button" class="btn btn-primary">Lưu</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
                 </div>
             </div>
@@ -135,14 +164,6 @@
         </div>
     </div>
     <!-- End Modal Xóa Đề Tài  -->
-    <div class="container">
-     <div class="row">
-     </div>
-        <div id="footer">
-        <hr>
-            <h5 class="text-center text-danger">Khoa Công nghệ Thông tin - Đại học Sư phạm Kỹ thuật TP. Hồ Chí Minh</h5>
-            <h5 class="text-center text-danger">Số 1, Võ Văn Ngân, Thủ Đức, TP. Hồ Chí Minh</h5>
-        </div>
-    </div>   
+   
 </body>
 </html>

@@ -8,20 +8,31 @@
 	<title>jQuery Validate</title>	
     <link href="customDiv.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="customDiv.css" rel="stylesheet">
+     <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<style type="text/css">
 	label {
 		display: inline-block;
 		width: 150px;
 	}
-	input[type="text"], input[type="password"] {
+	input{
 		display: inline-block;
-		width: 200px;
+		width: 400px;
 	}
 	label.error {
 		display: inline-block;
 		color:red;
 		width: 200px;
 	}
+	h1 { 
+ border:0 solid #fff; 
+ border-bottom-width:1px;
+ padding-bottom:10px;
+ text-align: center;
+ color: green;
+}
 	</style>
 	
 	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
@@ -29,95 +40,98 @@
 	
 </head>
 <body>
-	<form method="get" accept-charset="utf-8" style="width:600px;margin: 0px auto;" id="formDemo">
-		<fieldset>
-			<legend style="color:red">THÔNG TIN GIÁO VIÊN</legend>
-			<div>
-				<label>Mã Giáo Viên</label>
-				<input id="MGV" name="MGV" type="text"  required>
-			</div>
-			<div>
-				<label>Khoa</label>
-				<input id="Khoa" name="Khoa" type="text" required>
-			</div>
-			<div>
-				<label>Chuyên Môn</label>
-				<input id="CM" name="CM" type="text" required>
-			</div>
-			<div>
-				<label>Bộ Môn</label>
-				<input id="BM" name="BM" type="text" required>
-			</div>
-			<div>
-				<label>Họ Tên</label>
-				<input id="HT" name="HT"type="text" required>
-			</div>
-			<div>
-				<label>Giới Tính</label>
-				<input id="GT" name="GT" type="text" required>
-			</div>
-			<div>
-				<label>SĐT</label>
-				<input id="SDT" name="SDT" type="text" required>
-			</div>
-			<div>
-				<label>Email</label>
-				<input id="EM" name="EM" type="email" required>
-			</div>
-			
-			<button type="submit"  onclick="myfun()">Thêm</button>
-		</fieldset>
-	</form>
-
-	<script type="text/javascript">
+   	<div class="container">
+   		<form name="loginform" method="get" accept-charset="utf-8" style="width:600px;margin: 0px auto;" id="formDemo">
+   		<div class="modal-dialog" >
+   						<div class="modal-content">
+   							<div class="modal-body">
+   								<h1>NHẬP THÔNG TIN GIÁO VIÊN</h1>
+   									
+   									<div class="form-group">
+   										<label>Họ Tên</label>
+   										<input class="form-control" placeholder="Nhập Họ Tên" name="HT" type="text"  required>
+   									</div>
+   									<div class="form-group">
+   										<label>Chuyên ngành</label>
+   										<input class="form-control" placeholder="Nhập Chuyên Ngành" name="CN" type="text"  required>
+   									</div>
+   									<div class="form-group">
+   										<label>Bộ Môn</label>
+   										<input class="form-control" placeholder="Nhập Bộ Môn" name="BM" type="text"  required>
+   									</div>
+   									<div class="form-group">
+   										<label>Giới Tính</label>
+   										<input class="form-control" placeholder="Nhập Giới Tính" name="GT" type="text" required>
+   									</div>
+   									<div class="form-group">
+   										<label>Ngay Sinh</label>
+   										<input class="form-control" placeholder="Nhập Theo Định Dạng (YYYY-MM-DD)" name="NS" type="text" required>
+   									</div>
+   									<div class="form-group">
+   										<label>SĐT</label>
+   										<input class="form-control" placeholder="Nhập SĐT" name="SDT" type="text" required>
+   									</div>
+   									<div class="form-group">
+   										<label>Email</label>
+   										<input class="form-control" placeholder="Nhập Email" name="EM" type="text" required>
+   									</div>
+   								
+   							</div>
+   						<div class="modal-footer">
+   								<input type="submit" class="btn btn-success btn-lg" onclick="myfun()" value="THÊM">
+   								
+   						</div>   						
+   					</div>
+   			</div>
+   			</form>
+   	</div>
+ 
+ 
+<script type="text/javascript">
 	function myfun(){
 	$(document).ready(function()  {
  
  //Khi bàn phím được nhấn và thả ra thì sẽ chạy phương thức này
  $("#formDemo").validate({
  rules: {
- MGV: "required",
- Khoa: "required",
- CM:"required",
- BM:"required",
- HT:"required",
- GT:"required",
- 
+ HT: "required",
+ CN: "required",
+ BM: "required",
+ GT: "required",
+ NS: "required",
  SDT: {
- required: true,
- minlength: 10,
- maxlength: 11
- },
+	 required: true,
+	 minlength: 10,
+	 maxlength: 11
+	 },
+	 
+	 EM: {
+	 required: true,
+	 email: true
+	 }
  
- EM: {
- required: true,
- email: true
- }
  },
  messages: {
- MGV: "Vui lòng nhập mã giáo viên",
- Khoa: "Vui lòng nhập tên khoa",
- CM: "Vui lòng nhập chuyên môn",
- BM: "Vui lòng nhập bộ môn",
  HT: "Vui lòng nhập họ tên",
+ CN: "Vui lòng nhập chuyên ngành",
+ BM: "Vui lòng nhập bộ môn",
  GT: "Vui lòng nhập giới tính",
- 
+ NS: "Vui lòng nhập ngày sinh",
  SDT: {
- required: "Vui lòng nhập số điện thoại",
- minlength: "Số máy quý khách vừa nhập là số không có thực",
- maxlength:"Số máy quý khách vừa nhập là số không có thực"
- },
- 
- 
- EM: {
- required: "Vui lòng nhập email",
- email:"Vui lòng nhập đúng định dạng"
- },
- 
+	 required: "Vui lòng nhập số điện thoại",
+	 minlength: "Số máy quý khách vừa nhập là số không có thực",
+	 maxlength:"Số máy quý khách vừa nhập là số không có thực"
+	 },
+	 
+	 EM: {
+		 required: "Vui lòng nhập email",
+		 email:"Vui lòng nhập đúng định dạng"
+	 }
  }
  });
  });
 }
  </script>
+ 	
 </body>
 </html>

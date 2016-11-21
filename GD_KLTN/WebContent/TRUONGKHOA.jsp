@@ -17,10 +17,53 @@
     <title>Bootstrap 101 Template</title>
     <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
      <link href="customDiv.css" rel="stylesheet">
-    
-     <script type="text/javascript" src="jquery-1.2.6.min.js"></script>
-
-
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="jquery.validate.min.js"></script>
+<style type="text/css">
+	label {
+		display: inline-block;
+		width: 150px;
+	}
+	input{
+		display: inline-block;
+		width: 400px;
+	}
+	label.error {
+		display: inline-block;
+		color:red;
+		width: 200px;
+	}
+	h1 { 
+ border:0 solid #fff; 
+ border-bottom-width:1px;
+ padding-bottom:10px;
+ text-align: center;
+ color: green;
+}
+	</style>
+	<script type="text/javascript">
+	function myfun(){
+	$(document).ready(function()  {
+ 
+ //Khi bàn phím được nhấn và thả ra thì sẽ chạy phương thức này
+ $("#formDemo").validate({
+ rules: {
+ TK: "required",
+ TP: "required",
+ NT: "required",
+ 
+ 
+ },
+ messages: {
+ TK: "Vui lòng nhập tên khu",
+ TP: "Vui lòng nhập tên phòng",
+ NT: "Vui lòng nhập ngày trống",
+ }
+ });
+ });
+}
+ </script>
 <script type="text/javascript">
 
 function slideSwitch() {
@@ -134,17 +177,10 @@ $(function() {
     				</div>	
   				</form>
 	</div>
+	
 		<br>
 		<br>
-    <div class="container">
-     <div class="row">
-     </div>
-        <div id="footer">
-        <hr>
-            <h5 class="text-center text-danger">Khoa Công nghệ Thông tin - Đại học Sư phạm Kỹ thuật TP. Hồ Chí Minh</h5>
-            <h5 class="text-center text-danger">Số 1, Võ Văn Ngân, Thủ Đức, TP. Hồ Chí Minh</h5>
-        </div>
-    </div>   
+  
    		
 
       <script language = "javascript">					
@@ -180,8 +216,10 @@ $(function() {
    			<div class="panel panel-default">
    		<table class="table table-bordered table-center">
    			<thead>
-	       <th>MÃ GV</th>
+   				<tr>
+	       			<th>MÃ GV</th>
 	                 <th>HỌ VÀ TÊN</th>
+	                 <th>CHUYÊN NGÀNH</th>
 	                 <th>BỘ MÔN</th>	                 
 	                 <th>NGÀY SINH</th>
 	                 <th>GIỚI TÍNH</th>
@@ -194,6 +232,7 @@ $(function() {
 								<tr>		
 										<td>${row.IDTK}</td>	
 										<td>${row.HoTen}</td>	
+										<td>${row.ChuyenNganh}</td>	
 										<td>${row.BoMon}</td>	
 										<td>${row.NgaySinh}</td>
 										<td>${row.GioiTinh}</td>	
@@ -304,14 +343,13 @@ $(function() {
     		<span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu">
-			<ul class="dropdown-menu">
 			<li><a href="#">A</a></li>
 			<li><a href="#">B</a></li>
 			<li><a href="#">TNTT</a></li>
 			<li><a href="#">C</a></li>
 			<li><a href="#">D</a></li>
 		</ul>
-		</ul>
+		
     	<br></br>
     	<br></br>
     </div>
@@ -364,12 +402,18 @@ $(function() {
     </div>
     
    	</p>
-   		</div>
-  
-   		
-   
-   
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   </div>
+   <br>
+ <br>
+       <div class="container">
+     <div class="row">
+     </div>
+        <div id="footer">
+        <hr>
+            <h5 class="text-center text-danger">Khoa Công nghệ Thông tin - Đại học Sư phạm Kỹ thuật TP. Hồ Chí Minh</h5>
+            <h5 class="text-center text-danger">Số 1, Võ Văn Ngân, Thủ Đức, TP. Hồ Chí Minh</h5>
+        </div>
+    </div>   
     <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
      <script type="text/javascript" src="snowstorm.js"></script>
     
@@ -405,8 +449,6 @@ $(function() {
 						};
 			
 											    
-					
-					
 				
 				</script>
   </body>

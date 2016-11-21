@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <!DOCTYPE html>
@@ -17,9 +18,9 @@
 		display: inline-block;
 		width: 150px;
 	}
-	input[type="text"], input[type="password"] {
+	input{
 		display: inline-block;
-		width: 200px;
+		width: 400px;
 	}
 	label.error {
 		display: inline-block;
@@ -53,16 +54,16 @@
    								<h1>NHẬP THÔNG TIN PHÒNG TRỐNG</h1>
    									
    									<div class="form-group">
-   										<label for="inputTK">Tên Khu</label>
+   										<label>Tên Khu</label>
    										<input class="form-control" placeholder="Nhập Tên Khu" name="TK" type="text"  required>
    									</div>
    									<div class="form-group">
-   										<label for="inputTP">Tên Phòng</label>
+   										<label>Tên Phòng</label>
    										<input class="form-control" placeholder="Nhập Tên Phòng Trống" name="TP" type="text"  required>
    									</div>
    									<div class="form-group">
-   										<label for="inputNT">Ngày Trống</label>
-   										<input class="form-control" placeholder="Nhập (YYYY-MM-DD)" name="NT" type="text" required>
+   										<label>Ngày Trống</label>
+   										<input class="form-control" placeholder="Nhập Theo Định Dạng (YYYY-MM-DD)" name="NT" type="text" required>
    									</div>
    								
    							</div>
@@ -101,3 +102,4 @@
  	
 </body>
 </html>
+ 

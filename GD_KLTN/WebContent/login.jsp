@@ -11,6 +11,19 @@
     <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="customDiv.css" rel="stylesheet">
     <style type="text/css">
+	label {
+		display: inline-block;
+		width: 150px;
+	}
+	input{
+		display: inline-block;
+		width: 400px;
+	}
+	label.error {
+		display: inline-block;
+		color:red;
+		width: 200px;
+	}
 	h1 { 
  border:0 solid #fff; 
  border-bottom-width:1px;

@@ -11,6 +11,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    <link href="customDiv.css" rel="stylesheet">
   <style>
+  body{
+	font-family: arial, san-serif;
+}
 ul {
     list-style-type: none;
     margin: 0;

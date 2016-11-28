@@ -7,14 +7,15 @@
 		user="root" 
 		password="1234"/>
 	<sql:query var="items" sql="SELECT * FROM taikhoan"/>  
-	<sql:query var="items2" sql="SELECT * FROM phongtrong"/>  
+	<sql:query var="items2" sql="SELECT * FROM phongtrong"/>
+	<sql:query var="items3" sql="SELECT TenDT,MoTa,FileBaoCao,SoLuongSV,baocao.IDGV,Diem,NhanXet,T.SV ,S.GVHD  FROM detai ,baocao ,(select HoTen AS SV FROM taikhoan,baocao WHERE baocao.IDSV=taikhoan.IDTK) AS T,(select HoTen AS GVHD FROM taikhoan,baocao WHERE baocao.IDGV=taikhoan.IDTK) AS S WHERE detai.IDDT=baocao.IDDT "/>   
 	<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
+    <title>TRUONG KHOA</title>
     <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
      <link href="customDiv.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -290,7 +291,7 @@ $(function() {
     	<br></br>
     	<br></br>
     </div>
-   			<div class="panel panel-default">
+   		<div class="panel panel-default">
    		<table class="table table-bordered table-center">
    				<thead>
 	            <tr class="success">
@@ -305,7 +306,18 @@ $(function() {
 	            </tr>
             </thead>
             <tbody>
-	           
+	           <c:forEach items="${items3.rows}" var="row">			
+								<tr>		
+										<td>${row.TenDT}</td>	
+										<td>${row.GVHD}</td>	
+										<td>${row.SoLuongSV}</td>	
+										<td>${row.TenP}</td>
+										<td>${row.FileBaoCao}</td>	
+										<td>${row.SV}</td>	
+										<td>${row.Diem}</td>		
+										<td>${row.NhanXet}</td>	
+								</tr>							
+				</c:forEach>
         	</tbody>
    		</table>
    		

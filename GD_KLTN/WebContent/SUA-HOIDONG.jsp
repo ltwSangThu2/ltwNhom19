@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+   <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+    	<sql:setDataSource 	driver="com.mysql.jdbc.Driver"    	
+		url="jdbc:mysql://localhost/kltn" 
+		user="root" 
+		password="1234"/>
+    <sql:query var="items" sql="SELECT * FROM hoidong a,phongtrong b,giobaocao c WHERE a.IDP=b.IDP and a.GioID=c.GioID"/>
  <!DOCTYPE html>
 <html>
 <head>
@@ -51,6 +58,7 @@ h1 {
                     <th>Chủ Tịch Hội Đồng</th>
                     <th>Uỷ Viên</th>
                     <th>Phản Biện</th>
+                    <th>Hướng Dẫn</th>
                     <th>Ngày Bảo Vệ</th>
                     <th>Phòng</th>
                     <th>Giờ Báo Cáo</th>
@@ -58,40 +66,26 @@ h1 {
                </tr>
            </thead>
            <tbody>
-              <tr>
-                    <td>Hội đồng BVKLTN 1</td>
-                    <td>Đặng Thanh Dũng</td>
-                    <td>Nguyễn Minh Đạo</td>
-                    <td>Tô Ánh Ngọc</td>
-                    <td>13/06/2016</td>
-                    <td>A4-402</td>
-                    <td>7h-8h</td>
-                    <td class="text-center">
-                        <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#ChinhSuaHD">
-                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Sửa
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#XoaHD">
-                        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Xóa
-                        </button>
-                   </td>
-              </tr>
-              <tr>
-                   <td>Hội đồng BVKLTN 2</td>
-                    <td>Đặng Thanh Sang</td>
-                    <td>Nguyễn Minh Tiến</td>
-                    <td>Hà Kim Giao</td>
-                    <td>10/06/2016</td>
-                    <td>A3-302</td>
-                    <td>7h-8h</td>
-                    <td class="text-center">
-              <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#ChinhSuaHD">
-              <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Sửa
-              </button>
-              <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#XoaHD">
-              <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Xóa
-              </button>
-              </td>
-              </tr>
+           <c:forEach items="${items.rows}" var="row">			
+								<tr>		
+										<td>${row.TenHD}</td>	
+										<td>${row.CT}</td>
+										<td>${row.UV}</td>
+										<td>${row.PB}</td>
+										<td>${row.HD}</td>			
+										<td>${row.NgayTrong}</td>	
+										<td>${row.TenP}</td>	
+										<td>${row.Gio}</td>
+										<td class="text-center">
+                        					<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#ChinhSuaHD">
+                        						<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Sửa
+                        					</button>
+                        					<button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#XoaHD">
+                        						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Xóa
+                       						 </button>
+                   						</td>
+								</tr>							
+				</c:forEach>          
          </tbody>
     </table>
     </div>

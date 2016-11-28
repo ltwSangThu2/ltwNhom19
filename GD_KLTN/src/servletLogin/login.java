@@ -56,11 +56,10 @@ public class login extends HttpServlet {
 				  username = request.getParameter("username").toString();
 				  userpass = request.getParameter("password").toString();
 		 
-				  strQuery="select * from taikhoan where TenTK='"+username+"' and  MatKhau='"+userpass+"'";
+				  strQuery="select * from taikhoan INNER JOIN role ON taikhoan.IDRole = role.IDRole where TenTK='"+username+"' and  MatKhau='"+userpass+"'";
 				  System.out.println(strQuery);
 				  st = conn.createStatement();
 				  rs = st.executeQuery(strQuery);
-				  System.out.println("chay querry");
 				  int count=0;
 				  while(rs.next())
 				  {

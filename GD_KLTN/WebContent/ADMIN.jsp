@@ -7,14 +7,16 @@
 		user="root" 
 		password="1234"/>
 	<sql:query var="items" sql="SELECT * FROM taikhoan"/>  
-	<sql:query var="items2" sql="SELECT * FROM phongtrong"/>  
+	<sql:query var="items2" sql="SELECT * FROM phongtrong"/>
+	<sql:query var="items3" sql="SELECT TenDT,MoTa,FileBaoCao,SoLuongSV,baocao.IDGV,Diem,NhanXet,T.SV ,S.GVHD  FROM detai ,baocao ,(select HoTen AS SV FROM taikhoan,baocao WHERE baocao.IDSV=taikhoan.IDTK) AS T,(select HoTen AS GVHD FROM taikhoan,baocao WHERE baocao.IDGV=taikhoan.IDTK) AS S WHERE detai.IDDT=baocao.IDDT "/> 
+	<sql:query var="items4" sql="SELECT * FROM taikhoan,role WHERE taikhoan.IDRole=role.IDRole"/>    
 	<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
+    <title>ADMIN</title>
     <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="customDiv.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -113,8 +115,20 @@ $(function() {
 	                 <th>Nhận Xét</th>
 	            </tr>
             </thead>
-            <tbody>
-	           
+	           <tbody>
+	           <c:forEach items="${items3.rows}" var="row">			
+								<tr>		
+										<td>${row.TenDT}</td>	
+										<td>${row.GVHD}</td>	
+										<td>${row.SoLuongSV}</td>	
+										<td>${row.TenP}</td>
+										<td>${row.FileBaoCao}</td>	
+										<td>${row.SV}</td>	
+										<td>${row.Diem}</td>		
+										<td>${row.NhanXet}</td>	
+								</tr>							
+				</c:forEach>
+							
         	</tbody>
    		</table>
    		
@@ -161,7 +175,7 @@ $(function() {
     	<br></br>
     	<br></br>
     </div>
-   			<div class="panel panel-default">
+   		<div class="panel panel-default">
    		<table class="table table-bordered table-center">
    			<thead>
 	            <tr class="success">
@@ -175,7 +189,7 @@ $(function() {
 	            </tr>
             </thead>
             <tbody>
-	           <c:forEach items="${items.rows}" var="row">			
+	           <c:forEach items="${items.rows}"  var="row">			
 								<tr>		
 										<td>${row.IDTK}</td>	
 										<td>${row.HoTen}</td>	
@@ -234,7 +248,7 @@ $(function() {
     	<br></br>
     	<br></br>
     </div>
-   			<div class="panel panel-default">
+   		<div class="panel panel-default">
    		<table class="table table-bordered table-center">
    				<thead>
 		            <tr class="success">
@@ -309,7 +323,7 @@ $(function() {
     	<br></br>
     	<br></br>
     </div>
-   			<div class="panel panel-default">
+   		<div class="panel panel-default">
    		<table class="table table-bordered table-center table-striped">
    			<thead>
 	            <tr class="danger">
@@ -326,36 +340,22 @@ $(function() {
 	            </tr>
             </thead>
             <tbody>
+             <c:forEach items="${items4.rows}"  var="row">	
 	            <tr>
 		            <td>
 		            	<input type="checkbox" name="vehicle" value="TK"></br>
-		            </td>
-		            <td>Hà Dung</td>
-		            <td>Hệ Thống Thông Tin</td>
-		            <td>Kho Dữ Liệu </td>
-		             <td>1995-07-21 </td>
-		             <td>Nữ </td>
-		             <td>0989876545 </td>
-		            <td>Dung12@gmail.com</td>  
-		             <td>123</td>
-		            <td>Trưởng Khoa</td>                            
-	            </tr>
-                <tr>
-	                <td>
-		            	<input type="checkbox" name="vehicle" value="GV"></br>
-		            </td>
-		             <td>Ái Châu</td>
-		            <td>Công Nghệ Phần Mềm</td>
-		            <td>Lập Trình Web </td>
-		             <td>1995-09-27 </td>
-		             <td>Nữ </td>
-		              <td>0997666543 </td>
-		            <td>Chau123@gmail.com</td>  
-		            <td>123</td>
-		            <td>Giáo Viên</td>                     
-                </tr>
-             
-                                    
+		            </td>	
+					<td>${row.HoTen}</td>	
+					<td>${row.ChuyenNganh}</td>
+					<td>${row.BoMon}</td>	
+					<td>${row.NgaySinh}</td>
+					<td>${row.GioiTinh}</td>	
+					<td>${row.SDT}</td>	
+					<td>${row.Email}</td>		
+					<td>${row.MatKhau}</td>
+					<td>${row.RoleName}</td>					
+				</tr>							
+			</c:forEach>                                      
         	</tbody>
    		</table>
    		

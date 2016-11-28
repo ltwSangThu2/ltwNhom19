@@ -63,7 +63,7 @@
    									</div>
    									<div class="form-group">
    										<label>Ngày Trống</label>
-   										<input class="form-control" placeholder="Nhập Theo Định Dạng (YYYY-MM-DD)" name="NT" type="text" required>
+   										<input class="form-control" placeholder="Nhập Theo Định Dạng (DD/MM/YYYY)" name="NT" type="text" required>
    									</div>
    								
    							</div>

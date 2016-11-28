@@ -1,12 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-	<!DOCTYPE html>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    	<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+    	<sql:setDataSource 	driver="com.mysql.jdbc.Driver"    	
+		url="jdbc:mysql://localhost/kltn" 
+		user="root" 
+		password="1234"/>
+	<sql:query var="items" sql="SELECT TenDT,MoTa,FileBaoCao,SoLuongSV,baocao.IDGV,Diem,NhanXet,T.SV ,S.GVHD  FROM detai ,baocao ,(select HoTen AS SV FROM taikhoan,baocao WHERE baocao.IDSV=taikhoan.IDTK) AS T,(select HoTen AS GVHD FROM taikhoan,baocao WHERE baocao.IDGV=taikhoan.IDTK) AS S WHERE detai.IDDT=baocao.IDDT "/> 
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
+    <title>SINH VIEN</title>
     <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
      <link href="customDiv.css" rel="stylesheet">
     
@@ -49,8 +56,6 @@ $(function() {
   </head>
   <body>
   
-  
-    <div class="container">
    <div class="row">
    		<div class="col-xs-12">
    		<ul class="nav nav-tabs">
@@ -63,14 +68,14 @@ $(function() {
    			
    		</ul>
    		</div>
-   	</div>
-   	</div>
+   </div>
+  
    	<div class="tab-content">
    		<div id="homeTab" class="tab-pane fade "></div>
    		<div id="dangxuatTab" class="tab-pane fade"></div>	
    </div>
-   <div class="container">
-            <div class="row">
+   
+       <div class="row">
             <div class="col-md-3">
             <div class="customDiv">
             
@@ -81,30 +86,30 @@ $(function() {
    			
             	</ul>
             </div>	
-            	</div>
+           </div>
         
         
-            <div class="col-md-9">
-<div class="tab-content">
+ 	<div class="col-md-9">
+		<div class="tab-content">
    		<div id="detaiTab" class="tab-pane fade in active">
    		
-   			<h3 style="color:red">DANH SÁCH ĐỀ TÀI</h3>
+   			<h3 style="color:red;font-weight:bold; text-align: center;font-size: 250%">DANH SÁCH ĐỀ TÀI</h3>
    			<p>  
             <div class="btn-group btn-group-lg">
-    	<button class="btn btn-default">Chuyên Ngành</button>
-    	<button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-    		<span class="caret"></span>
-		</button>
-		<ul class="dropdown-menu">
-			<li><a href="#">Công Nghê Phần Mềm</a></li>
-			<li><a href="#">Hệ Thống Thông Tin</a></li>
-			<li><a href="#">Mạng</a></li>
-			<li><a href="#">Tất cả</a></li>
-		</ul>
-    	<br></br>
-    	<br></br>
-    </div>
-   			<div class="panel panel-default">
+    			<button class="btn btn-default">Chuyên Ngành</button>
+    			<button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+    				<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li><a href="#">Công Nghê Phần Mềm</a></li>
+					<li><a href="#">Hệ Thống Thông Tin</a></li>
+					<li><a href="#">Mạng</a></li>
+					<li><a href="#">Tất cả</a></li>
+				</ul>
+    		<br>
+    		<br>
+    	</div>
+   		<div class="panel panel-default">
    		<table class="table table-bordered table-center">
    			<thead>
 	            <tr class="success">
@@ -119,6 +124,18 @@ $(function() {
 	            </tr>
             </thead>
             <tbody>
+            	<c:forEach items="${items.rows}" var="row">			
+								<tr>		
+										<td>${row.TenDT}</td>	
+										<td>${row.GVHD}</td>	
+										<td>${row.SoLuongSV}</td>	
+										<td>${row.TenP}</td>
+										<td>${row.FileBaoCao}</td>	
+										<td>${row.SV}</td>	
+										<td>${row.Diem}</td>		
+										<td>${row.NhanXet}</td>	
+								</tr>							
+				</c:forEach>
 	        </tbody>
    		</table>
    		
@@ -137,7 +154,8 @@ $(function() {
    		</div>
    		</div>
    		</div>
-   
+ </div>
+ 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
      <script type="text/javascript" src="snowstorm.js"></script>

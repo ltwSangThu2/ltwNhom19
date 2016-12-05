@@ -43,19 +43,23 @@
 <body>
 
    	<div class="container">
-   		<form name="loginform" method="get" accept-charset="utf-8" style="width:600px;margin: 0px auto;" id="formDemo">
+   		<form action="ThemDeTai" name="loginform" method="post"  style="width:600px;margin: 0px auto;" id="formDemo">
    		<div class="modal-dialog" >
    						<div class="modal-content">
    							<div class="modal-body">
    								<h1>NHẬP THÔNG TIN ĐỀ TÀI</h1>
    									
    									<div class="form-group">
+   										<label>ID Đề Tài</label>
+   										<input class="form-control" placeholder="Nhập ID Đề Tài" name="IDDT" type="text"  required>
+   									</div>
+   									<div class="form-group">
    										<label>Tên Đề Tài</label>
    										<input class="form-control" placeholder="Nhập Tên Đề Tài" name="TDT" type="text"  required>
    									</div>
    									<div class="form-group">
    										<label>GVHD</label>
-   										<input class="form-control" placeholder="Nhập Tên GVHD" name="GVHD" type="text"  required>
+   										<input class="form-control" placeholder="Nhập Tên GVHD" name="GVHD" type="text" >
    									</div>
    									<div class="form-group">
    										<label>Số Lượng Sinh Viên</label>
@@ -67,7 +71,7 @@
    									</div>
    									<div class="form-group">
    										<label>Sinh Viên Thực Hiện</label>
-   										<input class="form-control" placeholder="Nhập Sinh Viên Thực Hiện" name="SVTH" type="text" required>
+   										<input class="form-control" placeholder="Nhập Sinh Viên Thực Hiện" name="SVTH" type="text" >
    									</div>
    									<div class="form-group">
    										<label>Điểm</label>
@@ -96,17 +100,17 @@
  //Khi bàn phím được nhấn và thả ra thì sẽ chạy phương thức này
  $("#formDemo").validate({
  rules: {
+IDDT: "required",
  TDT: "required",
- GVHD: "required",
  SLSV: "required",
  MT: "required",
- SVTH: "required",
- DIEM: "required",
+  DIEM: "required",
  NX: "required",
  
  
  },
  messages: {
+IDDT: "Vui lòng nhập ID Đề Tài",
  TDT: "Vui lòng nhập tên đề tài",
  GVHD: "Vui lòng nhập tên GVHD",
  SLSV: "Vui lòng nhập số lượng SV",

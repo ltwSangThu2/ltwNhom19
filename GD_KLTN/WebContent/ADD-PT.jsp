@@ -47,12 +47,16 @@
 <br>
 <br >
    	<div class="container">
-   		<form name="loginform" method="get" accept-charset="utf-8" style="width:600px;margin: 0px auto;" id="formDemo">
+   		<form action="ThemPhong" name="loginform" method="post"  style="width:600px;margin: 0px auto;" id="formDemo">
    		<div class="modal-dialog" >
    						<div class="modal-content">
    							<div class="modal-body">
    								<h1>NHẬP THÔNG TIN PHÒNG TRỐNG</h1>
    									
+   									<div class="form-group">
+   										<label>Mã Phòng</label>
+   										<input class="form-control" placeholder="Nhập Mã Phòng" name="IDP" type="text"  required>
+   									</div>
    									<div class="form-group">
    										<label>Tên Khu</label>
    										<input class="form-control" placeholder="Nhập Tên Khu" name="TK" type="text"  required>
@@ -84,6 +88,7 @@
  //Khi bàn phím được nhấn và thả ra thì sẽ chạy phương thức này
  $("#formDemo").validate({
  rules: {
+IDP: "required",
  TK: "required",
  TP: "required",
  NT: "required",
@@ -91,6 +96,7 @@
  
  },
  messages: {
+IDP :"Vui lòng nhập mã phòng",
  TK: "Vui lòng nhập tên khu",
  TP: "Vui lòng nhập tên phòng",
  NT: "Vui lòng nhập ngày trống",

@@ -6,7 +6,7 @@
 		url="jdbc:mysql://localhost/kltn" 
 		user="root" 
 		password="1234"/>
-	<sql:query var="items" sql="SELECT * FROM taikhoan"/>  
+	<sql:query var="items" sql="SELECT * FROM taikhoan,role WHERE taikhoan.IDRole = role.IDRole and RoleName='GiaoVien'"/>   
 	<sql:query var="items2" sql="SELECT * FROM phongtrong"/>
 	<sql:query var="items3" sql="SELECT TenDT,MoTa,FileBaoCao,SoLuongSV,baocao.IDGV,Diem,NhanXet,T.SV ,S.GVHD  FROM detai ,baocao ,(select HoTen AS SV FROM taikhoan,baocao WHERE baocao.IDSV=taikhoan.IDTK) AS T,(select HoTen AS GVHD FROM taikhoan,baocao WHERE baocao.IDGV=taikhoan.IDTK) AS S WHERE detai.IDDT=baocao.IDDT "/> 
 	<sql:query var="items4" sql="SELECT * FROM taikhoan,role WHERE taikhoan.IDRole=role.IDRole"/>    
@@ -19,11 +19,32 @@
     <title>ADMIN</title>
     <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="customDiv.css" rel="stylesheet">
+    
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-     <script type="text/javascript" src="jquery-1.2.6.min.js"></script>
 <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
-	<script type="text/javascript" src="jquery.validate.min.js"></script>
 
+<style type="text/css">
+	label {
+		display: inline-block;
+		width: 150px;
+	}
+	input{
+		display: inline-block;
+		width: 400px;
+	}
+	label.error {
+		display: inline-block;
+		color:red;
+		width: 200px;
+	}
+	h1 { 
+ border:0 solid #fff; 
+ border-bottom-width:1px;
+ padding-bottom:10px;
+ text-align: center;
+ color: green;
+}
+	</style>
 <script type="text/javascript">
 
 function slideSwitch() {
@@ -57,7 +78,23 @@ $(function() {
 });
 
 </script>
-
+<style type="text/css">
+	label {
+		display: inline-block;
+		width: 300px;
+	}
+	select {
+		width: 450px;
+	}
+	label.error {
+		display: inline-block;
+		color:red;
+		width: 200px;
+	}
+	body {
+    background-color: whitesmoke;
+}
+	</style>
   </head>
   <body>
    
@@ -198,7 +235,6 @@ $(function() {
 										<td>${row.GioiTinh}</td>	
 										<td>${row.SDT}</td>	
 										<td>${row.Email}</td>		
-										
 								</tr>							
 							</c:forEach>
         	</tbody>
@@ -324,10 +360,10 @@ $(function() {
     	<br></br>
     </div>
    		<div class="panel panel-default">
-   		<table class="table table-bordered table-center table-striped">
+   		<table class="table table-bordered table-center table-striped" id="mytable">
    			<thead>
 	            <tr class="danger">
-	                 <th>CHỌN</th>
+	                 <th hidden="true">TenTK</th>
 	                 <th>HỌ VÀ TÊN</th>
 	                 <th>CHUYÊN NGÀNH</th>
 	                 <th>BỘ MÔN</th>	                 
@@ -337,14 +373,13 @@ $(function() {
 	                 <th>EMAIL</th>
 	                 <th>MẬT KHẨU</th>
 	                 <th>QUYỀN</th>
+	                 <th>XÓA TÀI KHOẢN</th>
 	            </tr>
             </thead>
             <tbody>
              <c:forEach items="${items4.rows}"  var="row">	
 	            <tr>
-		            <td>
-		            	<input type="checkbox" name="vehicle" value="TK"></br>
-		            </td>	
+		            <td hidden="true">${row.TenTK}</td>	
 					<td>${row.HoTen}</td>	
 					<td>${row.ChuyenNganh}</td>
 					<td>${row.BoMon}</td>	
@@ -353,7 +388,8 @@ $(function() {
 					<td>${row.SDT}</td>	
 					<td>${row.Email}</td>		
 					<td>${row.MatKhau}</td>
-					<td>${row.RoleName}</td>					
+					<td>${row.RoleName}</td>
+					<td><a  onclick="XoaDong(this);" style="color:pink;font-weight:bold">XÓA</a></td>					
 				</tr>							
 			</c:forEach>                                      
         	</tbody>
@@ -377,8 +413,6 @@ $(function() {
    		
    </div>
    
-  
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
  
     <script type="text/javascript" src="snowstorm.js"></script>
@@ -405,7 +439,7 @@ $(function() {
             <h5 class="text-center text-danger">Số 1, Võ Văn Ngân, Thủ Đức, TP. Hồ Chí Minh</h5>
         </div>
     </div>
-<script language="javascript">
+<script type="text/javascript">
 					
 				function loadthemdt() {
 					$("#detaiTab").load("ADD-DTM.jsp");
@@ -419,11 +453,22 @@ $(function() {
 									    function loadthempt() {
 											$("#phongTab").load("ADD-PT.jsp");
 											    };
-											    
-					
-					
-				
-				</script>
+			
+</script>
+<script type="text/javascript">
+	function XoaDong(XD){
+		var retVal = confirm("Ban Có Chắc Muốn Xóa Tài Khoản Này Không ?");
+		if(retVal == true){
+			var a = XD.parentNode.parentNode.rowIndex;
+			var b = document.getElementById("mytable").rows[a].cells[0].innerHTML;
+			window.location.href="XoaDuLieu?TenTK="+b;
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+</script>
 				
 
 				

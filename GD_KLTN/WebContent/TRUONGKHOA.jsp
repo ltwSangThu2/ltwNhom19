@@ -6,7 +6,7 @@
 		url="jdbc:mysql://localhost/kltn" 
 		user="root" 
 		password="1234"/>
-	<sql:query var="items" sql="SELECT * FROM taikhoan"/>  
+	<sql:query var="items" sql="SELECT * FROM taikhoan,role WHERE taikhoan.IDRole = role.IDRole and RoleName='GiaoVien'"/>  
 	<sql:query var="items2" sql="SELECT * FROM phongtrong"/>
 	<sql:query var="items3" sql="SELECT TenDT,MoTa,FileBaoCao,SoLuongSV,baocao.IDGV,Diem,NhanXet,T.SV ,S.GVHD  FROM detai ,baocao ,(select HoTen AS SV FROM taikhoan,baocao WHERE baocao.IDSV=taikhoan.IDTK) AS T,(select HoTen AS GVHD FROM taikhoan,baocao WHERE baocao.IDGV=taikhoan.IDTK) AS S WHERE detai.IDDT=baocao.IDDT "/>   
 	<!DOCTYPE html>
@@ -20,7 +20,7 @@
      <link href="customDiv.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
-	<script type="text/javascript" src="jquery.validate.min.js"></script>
+    	
 <style type="text/css">
 	label {
 		display: inline-block;
@@ -43,28 +43,7 @@
  color: green;
 }
 	</style>
-	<script type="text/javascript">
-	function myfun(){
-	$(document).ready(function()  {
- 
- //Khi bàn phím được nhấn và thả ra thì sẽ chạy phương thức này
- $("#formDemo").validate({
- rules: {
- TK: "required",
- TP: "required",
- NT: "required",
- 
- 
- },
- messages: {
- TK: "Vui lòng nhập tên khu",
- TP: "Vui lòng nhập tên phòng",
- NT: "Vui lòng nhập ngày trống",
- }
- });
- });
-}
- </script>
+	
 <script type="text/javascript">
 
 function slideSwitch() {
@@ -121,11 +100,14 @@ $(function() {
    <div class="row">
    		<div class="col-xs-12">
    		<ul class="nav nav-tabs">
-   			<li >
-   				<a href="#trangchuTab" data-toggle="tab">Trang chủ</a>
+   			<li>
+   				<a href="LogoutServlet">Đăng Xuất</a>
    			</li>
    			<li>
    				<a href="#giaovienTab" data-toggle="tab">Danh Sách Giao Viên</a>
+   			</li>
+   			<li>
+   				<a href="#taohoidongTab" data-toggle="tab">Tạo Hội Đồng</a>
    			</li>
    			<li>
    				<a href="#saplichTab" data-toggle="tab">Sắp Lịch</a>
@@ -140,6 +122,43 @@ $(function() {
    		</div>
    	</div>
    	<div class="tab-content">
+   		<div id="trangchuTab" class="tab-pane fade"></div>
+   		<div id="taohoidongTab" class="tab-pane fade">
+   			<div class="container">
+			<br>
+			<br>
+				<form >
+					<div class="form-group">
+						<label>TÊN HỘI ĐỒNG</label>
+						<input class="form-control" type="text" id="THD" name="THD" placeholder="Nhập tên hội đồng" required>
+					</div>
+					<div class="form-group">
+						<label>NGÀY BẢO VỆ KHÓA LUẬN</label>
+						<input type="text" list="DSNT" name="NBV" class="form-control" placeholder="Chọn ngày bảo vệ khóa luận" >
+     					<datalist id="DSNT">
+						 	<c:forEach items="${items2.rows}"  var="row">	
+								<option value="${row.NgayTrong}" >				
+							</c:forEach>		    
+			  			</datalist>
+					</div>
+					<div class="form-group">
+						<label>PHÒNG BẢO VỆ KHÓA LUẬN</label>
+						<input type="text" list="DSPT" name="TP" class="form-control" placeholder="Chọn phòng " >
+     					<datalist id="DSPT">
+							<c:forEach items="${items2.rows}"  var="row">	
+								<option value="${row.TenP}">				
+							</c:forEach>	
+			  		</datalist>
+					</div>
+					<br>
+					<br>
+					<div class="pull-right">
+   						<input type="submit" class="btn btn-warning btn-lg" onclick="myfun()" value="THÊM">
+   								
+   					</div> 
+				</form>
+			</div>	
+   		</div>
    		<div id="saplichTab" class="tab-pane fade ">
    		<div class="container">
     	   <br>
@@ -171,35 +190,16 @@ $(function() {
 			 					</datalist>
     				</div>
   					<div class="btn btn-lg ">
-    					<a href="#" onclick="loadTaoHoiDong()" class="btn btn-info">TẠO HỘI ĐỒNG</a>
+    					<a href="#" onclick="loadSapLichKhoaLuan()" class="btn btn-info">SẮP LỊCH KHÓA LUẬN</a>
     				</div>
     				<div class="btn btn-lg ">
     					<a href="#" onclick="loadSuaHoiDong()" class="btn btn-warning">XEM HỘI ĐỒNG</a>
     				</div>	
   				</form>
-	</div>
-	
-		<br>
-		<br>
-  
-   		
-
-      <script language = "javascript">					
-				function loadTaoHoiDong() {
-					$("#saplichTab").load("TAO-HOIDONG.jsp");
-					    };		
-					
-</script>
-    <script language = "javascript">					
-				function loadSuaHoiDong() {
-					$("#saplichTab").load("SUA-HOIDONG.jsp");
-					    };		
-					
-</script>
-	
+			</div>
    		</div>
    		<div id="giaovienTab" class="tab-pane fade">
-   			<p> <div class="btn-group btn-group-lg">
+   		 <div class="btn-group btn-group-lg">
     	<button class="btn btn-default">Khoa</button>
     	<button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
     		<span class="caret"></span>
@@ -217,7 +217,7 @@ $(function() {
    			<div class="panel panel-default">
    		<table class="table table-bordered table-center">
    			<thead>
-   				<tr>
+   				<tr class="success">
 	       			<th>MÃ GV</th>
 	                 <th>HỌ VÀ TÊN</th>
 	                 <th>CHUYÊN NGÀNH</th>
@@ -239,7 +239,6 @@ $(function() {
 										<td>${row.GioiTinh}</td>	
 										<td>${row.SDT}</td>	
 										<td>${row.Email}</td>		
-										
 								</tr>							
 							</c:forEach>
         	</tbody>
@@ -270,13 +269,13 @@ $(function() {
 	    	<a href="#" class="btn btn-success">Xóa</a>
     	</div>
     </div>
-    
-   	</p>
-   		</div>		
+ 
+  </div>
+   				
    		<div id="trangchuTab" class="tab-pane fade"></div>
    		<div id="detaiTab" class="tab-pane fade">
-   						<h3>Danh Sách Đề Tài</h3>
-   			<p>	    <div class="btn-group btn-group-lg">
+   			<h3>Danh Sách Đề Tài</h3>
+   			<div class="btn-group btn-group-lg">
     	<button class="btn btn-default">Khoa</button>
     	<button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
     		<span class="caret"></span>
@@ -345,11 +344,10 @@ $(function() {
 	    	<a href="#" class="btn btn-success">Xóa</a>
     	</div>
     </div>
-    
-   	</p>
+ 
    		</div>
    		<div id="phongTab" class="tab-pane fade">
-   			<p> <div class="btn-group btn-group-lg">
+   		<div class="btn-group btn-group-lg">
     	<button class="btn btn-default">Khu</button>
     	<button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
     		<span class="caret"></span>
@@ -412,8 +410,8 @@ $(function() {
 	    	<a href="#" class="btn btn-success">Xóa</a>
     	</div>
     </div>
-    
-   	</p>
+ 
+   </div>
    </div>
    <br>
  <br>
@@ -459,9 +457,17 @@ $(function() {
 				 function loadthempt() {
 					$("#phongTab").load("ADD-PT.jsp");
 						};
-			
-											    
-				
-				</script>
+						  				
+				function loadSapLichKhoaLuan() {
+					$("#saplichTab").load("SAP_LICH.jsp");
+						};		
+								
+						
+				function loadSuaHoiDong() {
+					$("#saplichTab").load("SUA-HOIDONG.jsp");
+					 };		
+								
+					    
+</script>
   </body>
 </html>

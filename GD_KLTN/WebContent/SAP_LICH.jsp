@@ -10,6 +10,7 @@
 	<sql:query var="items2" sql="SELECT * FROM taikhoan INNER JOIN role ON taikhoan.IDRole = role.IDRole WHERE role.RoleName = 'GiaoVien'"/>
  	<sql:query var="items3" sql="SELECT * FROM giobaocao"/>
  	<sql:query var="items4" sql="SELECT * FROM phongtrong"/>
+ 	<sql:query var="items5" sql="SELECT * FROM detai"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,34 +50,13 @@
 				<input class="form-control" type="text" id="HD" name="HD" placeholder="Nhập tên hội đồng" required>
 			</div>	
 			<div class="form-group">
-	<label >CHỌN ĐỀ TÀI CHO HỘI ĐỒNG</label>
-		<div class="panel panel-default">
-   			<table class="table table-bordered table-center">
-	   			<thead>
-		            <tr class="success">
-		            	 <th>Chọn</th>
-		                 <th>Tên Đề Tài</th>
-		                 <th>GVHD</th>
-		                 <th>Số Lượng Sinh Viên</th>
-		                 <th>File báo cáo</th>
-		            </tr>
-	            </thead>
-	            <tbody>
-		            <c:forEach items="${items.rows}"  var="row">	
-	            		<tr>
-		           			 <td>
-		            			<input type="checkbox" name="vehicle" value="TK"></br>
-		            		</td>	
-							<td>${row.TenDT}</td>	
-							<td>${row.HoTen}</td>
-							<td>${row.SoLuongSV}</td>	
-							<td>${row.FileBaoCao}</td>				
-						</tr>							
-					</c:forEach>          
-	        	</tbody>
-	   		</table>
-	   	</div>
-</div>   
+      			<label>CHỌN ĐỀ TÀI</label>
+      				<select class="form-control" id="CDT" name="CDT">
+       					<c:forEach items="${items5.rows}"  var="row">	
+							<option value="${row.IDDT}" >${row.TenDT}</option>				
+					</c:forEach>		
+      				</select>
+      		</div>
 			<div class="form-group">
       			<label>PHẢN BIỆN </label>
      			<input type="text" list="DSGV" name="GVPB" class="form-control" placeholder="Chọn giáo viên phản biện" >
@@ -87,7 +67,6 @@
 					</c:forEach>
 			  		</datalist>			  				
    			</div>
-   			
    			<div class="form-group">
       			<label>ỦY VIÊN</label>
      			<input type="text" list="DSGV" name="UV" class="form-control" placeholder="Chọn vị trí ủy viên " >
@@ -101,12 +80,12 @@
 			  		</datalist>
    			</div>
    			<div class="form-group">
+
       			<label>NGÀY BẢO VỆ</label>
      			<input type="text" list="DSNT" name="NBV" class="form-control" placeholder="Chọn ngày bảo vệ khóa luận" >
      				<datalist id="DSNT">
 						 <c:forEach items="${items4.rows}"  var="row">	
-							<option value="${row.NgayTrong}">	
-										
+							<option value="${row.IDP}" >${row.NgayTrong}</option>				
 					</c:forEach>		    
 			  		</datalist>
    			</div>

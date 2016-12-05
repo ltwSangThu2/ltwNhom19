@@ -38,7 +38,7 @@ li a {
 }
 
 li a:hover {
-    background: #fdffff;
+    background: #01beb0;
 	transition: all 0.40s;
 }
 

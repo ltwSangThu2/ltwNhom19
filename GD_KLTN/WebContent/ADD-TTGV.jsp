@@ -41,18 +41,22 @@
 </head>
 <body>
    	<div class="container">
-   		<form name="loginform" method="get" accept-charset="utf-8" style="width:600px;margin: 0px auto;" id="formDemo">
+   		<form action="ThemGiaoVien" name="loginform" method="post"  style="width:600px;margin: 0px auto;" id="formDemo">
    		<div class="modal-dialog" >
    						<div class="modal-content">
    							<div class="modal-body">
    								<h1>NHẬP THÔNG TIN GIÁO VIÊN</h1>
    									
    									<div class="form-group">
+   										<label>Mã Giáo Viên</label>
+   										<input class="form-control" placeholder="Nhập Mã Giáo Viên" name="MGV" type="text"  required>
+   									</div>
+   									<div class="form-group">
    										<label>Họ Tên</label>
    										<input class="form-control" placeholder="Nhập Họ Tên" name="HT" type="text"  required>
    									</div>
    									<div class="form-group">
-   										<label>Chuyên ngành</label>
+   										<label>Chuyên Ngành</label>
    										<input class="form-control" placeholder="Nhập Chuyên Ngành" name="CN" type="text"  required>
    									</div>
    									<div class="form-group">
@@ -75,7 +79,11 @@
    										<label>Email</label>
    										<input class="form-control" placeholder="Nhập Email" name="EM" type="text" required>
    									</div>
-   								
+   									<div class="form-group">
+   										<label>IDRole</label>
+   										<input class="form-control" placeholder="Nhập IDRole = R01" name="IDRole" type="text" required>
+   									</div>
+   									
    							</div>
    						<div class="modal-footer">
    								<input type="submit" class="btn btn-success btn-lg" onclick="myfun()" value="THÊM">
@@ -94,11 +102,13 @@
  //Khi bàn phím được nhấn và thả ra thì sẽ chạy phương thức này
  $("#formDemo").validate({
  rules: {
+MGV:"required",
  HT: "required",
  CN: "required",
  BM: "required",
  GT: "required",
  NS: "required",
+ IDRole: "required",
  SDT: {
 	 required: true,
 	 minlength: 10,
@@ -112,11 +122,13 @@
  
  },
  messages: {
+MGV: "Vui lòng nhập mã giáo viên",
  HT: "Vui lòng nhập họ tên",
  CN: "Vui lòng nhập chuyên ngành",
  BM: "Vui lòng nhập bộ môn",
  GT: "Vui lòng nhập giới tính",
  NS: "Vui lòng nhập ngày sinh",
+ IDRole: "Vui lòng nhập IDRole",
  SDT: {
 	 required: "Vui lòng nhập số điện thoại",
 	 minlength: "Số máy quý khách vừa nhập là số không có thực",

@@ -87,13 +87,12 @@
    										<input class="form-control" placeholder="Nhập Mật Khẩu" name="MK" type="password" required>
    									</div>
    									<div class="form-group">
-   										<label>Tên Quyền</label>
-   										<input type="text" list="Role" name="TQ" class="form-control" placeholder="Chọn Tên Quyền" type="text" required>
-     									<datalist id="Role">
-     				 						<c:forEach items="${items.rows}"  var="row">	
-												<option value="${row.IDRole}" >${row.RoleName}</option>			
-											</c:forEach>
-			  							</datalist>			
+   										<label>Chọn Tên Quyền</label>
+   										<select class="form-control" id="Role" name="TQ" >
+       										<c:forEach items="${items.rows}"  var="row">	
+												<option value="${row.IDRole}" >${row.RoleName}</option>				
+											</c:forEach>		
+      									</select>		
    									</div>
    								
    							</div>
@@ -116,7 +115,6 @@
  rules: {
  MK: "required",
  TTK: "required",
- TQ: "required",
  HT: "required",
  CN: "required",
  GT: "required",
@@ -136,7 +134,6 @@
  messages: {
 MK: "Vui lòng nhập mật khẩu",
 TTK: "Vui lòng nhập tên tài khoản",
-TQ: "Vui lòng chọn tên quyền",
  HT: "Vui lòng nhập họ tên",
  CN: "Vui lòng nhập chuyên ngành",
  GT: "Vui lòng nhập giới tính",

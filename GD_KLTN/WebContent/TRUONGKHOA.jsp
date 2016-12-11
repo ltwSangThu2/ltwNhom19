@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    	<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
-    	<sql:setDataSource 	driver="com.mysql.jdbc.Driver"    	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+ <sql:setDataSource 	driver="com.mysql.jdbc.Driver"    	
 		url="jdbc:mysql://localhost/kltn" 
 		user="root" 
 		password="1234"/>
 	<sql:query var="items" sql="SELECT * FROM taikhoan,role WHERE taikhoan.IDRole = role.IDRole and RoleName='GiaoVien'"/>  
 	<sql:query var="items2" sql="SELECT * FROM phongtrong"/>
-	<sql:query var="items3" sql="SELECT TenDT,MoTa,FileBaoCao,SoLuongSV,baocao.IDGV,Diem,NhanXet,T.SV ,S.GVHD  FROM detai ,baocao ,(select HoTen AS SV FROM taikhoan,baocao WHERE baocao.IDSV=taikhoan.IDTK) AS T,(select HoTen AS GVHD FROM taikhoan,baocao WHERE baocao.IDGV=taikhoan.IDTK) AS S WHERE detai.IDDT=baocao.IDDT "/>   
+	<sql:query var="items3" sql="SELECT TenDT,MoTa,FileBaoCao,SoLuongSV,Diem,NhanXet,T.SV ,S.GVHD  FROM detai ,baocao ,(select HoTen AS SV,IDSV FROM taikhoan,baocao WHERE baocao.IDSV=taikhoan.IDTK) AS T,(select HoTen AS GVHD,IDGV FROM taikhoan,baocao WHERE baocao.IDGV=taikhoan.IDTK) AS S WHERE detai.IDDT=baocao.IDDT and  baocao.IDSV=T.IDSV and baocao.IDGV=S.IDGV "/>   
 	<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -127,10 +127,19 @@ $(function() {
    			<div class="container">
 			<br>
 			<br>
-				<form >
-					<div class="form-group">
+				<form action="ThemHoiDong" name="hoidongform" method="post"  style="width:600px;margin: 0px auto;" id="formDemo" >
+					<div class="form-group"  >
 						<label>TÊN HỘI ĐỒNG</label>
-						<input class="form-control" type="text" id="THD" name="THD" placeholder="Nhập tên hội đồng" required>
+						<input class="form-control" type="text" id="THD" name="THD" class="form-control" placeholder="Nhập tên hội đồng" required>
+					</div>
+					<div class="form-group"  >
+						<label>CHUYÊN NGÀNH</label>
+						<input class="form-control" list="DSCN" name="CN" class="form-control" placeholder="Chọn chuyên ngành" required>
+						<datalist id="DSCN">
+							<option value="Hệ Thống Thông Tin"></option>
+							<option value="Công Nghệ Phần Mềm"></option>
+							<option value="Mạng Máy Tính"></option>
+						</datalist>
 					</div>
 					<div class="form-group">
 						<label>NGÀY BẢO VỆ KHÓA LUẬN</label>
@@ -153,7 +162,7 @@ $(function() {
 					<br>
 					<br>
 					<div class="pull-right">
-   						<input type="submit" class="btn btn-warning btn-lg" onclick="myfun()" value="THÊM">
+   						<input type="submit" class="btn btn-warning btn-lg"  value="THÊM">
    								
    					</div> 
 				</form>
@@ -190,7 +199,7 @@ $(function() {
 			 					</datalist>
     				</div>
   					<div class="btn btn-lg ">
-    					<a href="#" onclick="loadSapLichKhoaLuan()" class="btn btn-info">SẮP LỊCH KHÓA LUẬN</a>
+    					<a href="SaplichServlet" class="btn btn-info">SẮP LỊCH KHÓA LUẬN</a>
     				</div>
     				<div class="btn btn-lg ">
     					<a href="#" onclick="loadSuaHoiDong()" class="btn btn-warning">XEM HỘI ĐỒNG</a>

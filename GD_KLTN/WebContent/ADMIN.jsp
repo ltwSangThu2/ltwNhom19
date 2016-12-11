@@ -8,7 +8,7 @@
 		password="1234"/>
 	<sql:query var="items" sql="SELECT * FROM taikhoan,role WHERE taikhoan.IDRole = role.IDRole and RoleName='GiaoVien'"/>   
 	<sql:query var="items2" sql="SELECT * FROM phongtrong"/>
-	<sql:query var="items3" sql="SELECT TenDT,MoTa,FileBaoCao,SoLuongSV,baocao.IDGV,Diem,NhanXet,T.SV ,S.GVHD  FROM detai ,baocao ,(select HoTen AS SV FROM taikhoan,baocao WHERE baocao.IDSV=taikhoan.IDTK) AS T,(select HoTen AS GVHD FROM taikhoan,baocao WHERE baocao.IDGV=taikhoan.IDTK) AS S WHERE detai.IDDT=baocao.IDDT "/> 
+	<sql:query var="items3" sql="SELECT TenDT,MoTa,FileBaoCao,SoLuongSV,Diem,NhanXet,T.SV ,S.GVHD  FROM detai ,baocao ,(select HoTen AS SV,IDSV FROM taikhoan,baocao WHERE baocao.IDSV=taikhoan.IDTK) AS T,(select HoTen AS GVHD,IDGV FROM taikhoan,baocao WHERE baocao.IDGV=taikhoan.IDTK) AS S WHERE detai.IDDT=baocao.IDDT and baocao.IDSV=T.IDSV and baocao.IDGV=S.IDGV  "/> 
 	<sql:query var="items4" sql="SELECT * FROM taikhoan,role WHERE taikhoan.IDRole=role.IDRole"/>    
 	<!DOCTYPE html>
 <html lang="en">

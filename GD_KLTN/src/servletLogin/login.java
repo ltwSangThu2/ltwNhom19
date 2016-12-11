@@ -56,24 +56,32 @@ public class login extends HttpServlet {
 				  username = request.getParameter("username").toString();
 				  userpass = request.getParameter("password").toString();
 		 
-				  strQuery="select * from taikhoan INNER JOIN role ON taikhoan.IDRole = role.IDRole where TenTK='"+username+"' and  MatKhau='"+userpass+"'";
+				  strQuery="select RoleName from taikhoan INNER JOIN role ON taikhoan.IDRole = role.IDRole where TenTK='"+username+"' and  MatKhau='"+userpass+"'";
 				  System.out.println(strQuery);
 				  st = conn.createStatement();
 				  rs = st.executeQuery(strQuery);
 				  int count=0;
+				  String role="";
 				  while(rs.next())
 				  {
-					  session.setAttribute("username",rs.getString(2));
-					  count++;
+					  role=rs.getString("RoleName");
+					  
 				  }
-				  if(count>0)
+				  if(role.contentEquals("Admin"))
 				  {
-					   response.sendRedirect("ADMIN.jsp");
+					  response.sendRedirect("ADMIN.jsp");
+					  return;
+				  }
+				  if(role.contentEquals("TruongKhoa"))
+				  {
+					  response.sendRedirect("TRUONGKHOA.jsp");
+					  return;
 				  }
 				  else
 				  {
 					  response.sendRedirect("login.jsp");
 				  }
+				
 			  }
 			 else
 			 {

@@ -1,16 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-   <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
-    	<sql:setDataSource 	driver="com.mysql.jdbc.Driver"    	
-		url="jdbc:mysql://localhost/kltn" 
-		user="root" 
-		password="1234"/>
-	<sql:query var="items" sql="SELECT *  FROM detai ,baocao,taikhoan WHERE detai.IDDT=baocao.IDDT and baocao.IDGV=taikhoan.IDTK"/> 
-	<sql:query var="items2" sql="SELECT * FROM taikhoan INNER JOIN role ON taikhoan.IDRole = role.IDRole WHERE role.RoleName = 'GiaoVien'"/>
- 	<sql:query var="items3" sql="SELECT * FROM giobaocao"/>
- 	<sql:query var="items4" sql="SELECT * FROM phongtrong"/>
- 	<sql:query var="items5" sql="SELECT * FROM detai"/>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page session="true" %>
+<%@ page import="java.util.*" %>
+
+<% ArrayList c= (ArrayList)session.getAttribute("detais");%>
+<% ArrayList d= (ArrayList)session.getAttribute("hoidongs");%>
+<c:set var="a" value="<%=c %>" />
+<c:set var="b" value="<%=d %>" />
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,39 +42,45 @@
 
 	<div class="container">
 	<br></br>
-	<form >
+	<form  action="SaplichServlet"  name="loginform" method="post"  >
 			<div class="form-group">
-				<label>TÊN HỘI ĐỒNG</label>
-				<input class="form-control" type="text" id="HD" name="HD" placeholder="Nhập tên hội đồng" required>
+				<label>CHỌN TÊN HỘI ĐỒNG</label>
+					<select class="form-control" id="HD" name="HD" onChange="ChonHD()">
+       					<c:forEach items="${b}" var="row">	
+							<option value="${row.chuyenNganh}" >${row.tenHoidong}</option>				
+						</c:forEach>		
+      				</select>		
 			</div>	
-			<div class="form-group">
+			<div class="form-group"> 
       			<label>CHỌN ĐỀ TÀI</label>
-      				<select class="form-control" id="CDT" name="CDT">
-       					<c:forEach items="${items5.rows}"  var="row">	
-							<option value="${row.IDDT}" >${row.TenDT}</option>				
+      				<select  class='form-control' id="CDT" name="CDT" onChange="ChonDT()" >
+       					<c:forEach items="${a}" var="row">
+       						<option value="${row.idProject}">${row.nameProject}</option>	
+   					
 					</c:forEach>		
       				</select>
       		</div>
-			<div class="form-group">
+      	
+      		<div class="form-group"  id="GVHD">
+      			<label>GVHD</label>
+      				<select class='form-control'>
+      				</select> 				
+   			</div>
+			<div class="form-group" id="GVPB">
       			<label>PHẢN BIỆN </label>
-     			<input type="text" list="DSGV" name="GVPB" class="form-control" placeholder="Chọn giáo viên phản biện" >
-     				<datalist id="DSGV">
-     				 <c:forEach items="${items2.rows}"  var="row">	
-							<option value="${row.HoTen}">	
-										
-					</c:forEach>
-			  		</datalist>			  				
+      				<select class='form-control'>
+      				</select> 		  				
    			</div>
    			<div class="form-group">
       			<label>ỦY VIÊN</label>
-     			<input type="text" list="DSGV" name="UV" class="form-control" placeholder="Chọn vị trí ủy viên " >
-     				<datalist id="DSGV">
+     			<input type="text" list="DSUV" name="UV" class="form-control" placeholder="Chọn vị trí ủy viên " >
+     				<datalist id="DSUV">
 			  		</datalist>
    			</div>
 			<div class="form-group">
       			<label>CHỦ TỊCH HĐ</label>
-     			<input type="text" list="DSGV" name="CTHD" class="form-control" placeholder="Chọn chủ tịch hội đồng " >
-     				<datalist id="DSGV">
+     			<input type="text" list="DSCT" name="CTHD" class="form-control" placeholder="Chọn chủ tịch hội đồng " >
+     				<datalist id="DSCT">
 			  		</datalist>
    			</div>
    			<div class="form-group">
@@ -93,8 +97,8 @@
       			<label>TÊN PHÒNG:</label>
      			<input type="text" list="DSPT" name="TP" class="form-control" placeholder="Chọn phòng " >
      				<datalist id="DSPT">
-						<c:forEach items="${items4.rows}"  var="row">	
-							<option value="${row.TenP}">	
+						<c:forEach items="${items2.rows}"  var="row">	
+							<option value="${row.HoTen}">	
 										
 					</c:forEach>	
 			  		</datalist>
@@ -115,6 +119,39 @@
 <div class="container">  
   <button type="button" class="btn btn-danger">RESET</button>
   <button type="button" class="btn btn-primary">SAVE</button>
- </div> 
+ </div>
+ 
+<script type="text/javascript">
+	function ChonDT(){
+		var val=document.getElementById('CDT').value;
+		var xhttp=new XMLHttpRequest();
+		xhttp.onreadystatechange=function()
+		{
+			if(xhttp.readyState===4 && xhttp.status===200)
+			{
+					document.getElementById('GVHD').innerHTML=xhttp.responseText;
+			}
+				
+		};
+		xhttp.open("POST","GvhdServlet?valajax="+val,true);
+		xhttp.send();
+}	 
+</script>
+<script type="text/javascript">
+function ChonHD(){
+	var val=document.getElementById('HD').value;
+	var xhttp=new XMLHttpRequest();
+	xhttp.onreadystatechange=function()
+	{
+		if(xhttp.readyState===4 && xhttp.status===200)
+		{
+				document.getElementById('GVPB').innerHTML=xhttp.responseText;
+		}
+			
+	};
+	xhttp.open("POST","GvpbServlet?valajax="+val,true);
+	xhttp.send();
+}	 
+</script>		
 </body>
 </html>

@@ -10,6 +10,7 @@ encoding//WebContent/SAPLICH_HOME.jsp=UTF-8
 encoding//WebContent/SINHVIEN.jsp=UTF-8
 encoding//WebContent/TRUONGKHOA.jsp=UTF-8
 encoding//WebContent/nhap.html=UTF-8
+encoding//src/gvpb/servlet/GvpbServlet.java=UTF-8
 encoding//src/servletLogin/ThemGiaoVien.java=UTF-8
 encoding//src/servletLogin/ThemPhong.java=UTF-8
 encoding//src/servletLogin/ThemTaiKhoan.java=UTF-8

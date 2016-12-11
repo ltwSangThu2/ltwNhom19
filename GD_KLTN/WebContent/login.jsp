@@ -36,7 +36,7 @@
 <body>
 	<br />
    	<div class="container">
-   		<form name="loginform" method="post" action="loginbean.jsp" method="post">
+   		<form name="loginform" method="post" action="loginbean.jsp" style="width:600px;margin: 0px auto;" id="formDemo" >
    		<div class="modal-dialog" >
    						<div class="modal-content">
    							<div class="modal-body">
